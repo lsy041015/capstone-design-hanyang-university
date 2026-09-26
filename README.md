@@ -2,7 +2,7 @@
 
 ## Automated Unmanned Laundry Pickup System
 
-This capstone project presents a detailed Blender concept for a small unmanned laundry store in Korea. The store separates the washing and drying area from the finished-goods storage and pickup area. A protected automation cell stores completed garments and shoes, identifies each order, and delivers the correct item after customer authentication at a kiosk.
+This capstone project proposes an unmanned pickup service for completed laundry in a small store in Korea. Staff inspect, package, and register the finished items; a protected automation cell then stores them and retrieves the correct garment or pair of shoes after customer authentication. The project concept separates staff preparation, automated storage, and customer pickup while keeping people outside the moving machinery.
 
 ![Overall process cell](images/01_overall_process_cell.png)
 
@@ -20,19 +20,49 @@ The current demonstration capacity is:
 
 The Blender frame numbers represent inspection poses, not seconds or a validated cycle time.
 
+## Process Demonstration Video (v4)
+
+[Watch or download the 60-second process video](videos/process_v4_60s_1080p30.mp4).
+
+This earlier v4 animation shows 86 detailed process steps over 60 seconds at 1920 × 1080 and 30 fps. It uses a UR5 substitute model to examine a possible FR5e application. The v7 design described below adds revised mechanisms and 31 static inspection poses; this v4 video does not depict the final v7 geometry or slot count. The animation is a visual demonstration, not a physical performance or safety validation.
+
 ## Operating Flow
 
-1. Staff inspect and package the completed garments or shoes.
-2. The order ID and item ID are registered at the staff terminal.
-3. An empty garment adapter or shoe tray is supplied to the staff loading station.
-4. The robot remains at its home position while the guarded loading door is open.
-5. Staff load the garment adapter or shoe tray and close the guarded door.
-6. The robot transfers the item to the garment conveyor or shoe infeed.
-7. The storage location is recorded after the presence and ID checks succeed.
-8. The customer authenticates using a pickup number or QR code.
-9. The reserved item is retrieved and transferred to the correct customer compartment.
-10. The customer removes the item.
-11. The empty garment adapter or shoe tray is returned for the next order.
+The sequence below describes the proposed service operation. The model's 31 numbered frames are **separate inspection poses**, not elapsed time or proof of a continuous cycle. Frame 1 shows inventory waiting for pickup. Frames 23–31 show replenishment after the illustrated pickup, although staff loading occurs before a newly completed item can be stored and later collected.
+
+### 1. Staff inspection and item registration
+
+Staff first check the completed garment or shoes, package them, and link an item ID to the customer's order ID at a staff terminal. The proposed workflow rejects a duplicate ID, an unsuitable item or package, or an order with no available storage position before loading begins. Inspection, packaging, and registration remain staff tasks; the project does not claim to remove wet laundry from a washer or hang clothing automatically.
+
+### 2. Protected loading and storage — C07, C05, C01, C03
+
+An empty garment adapter or shoe tray is brought to the shared staff loading station, C07. Customer retrieval is paused, the robot is at home, and the guarded sliding door can open only in the service state. Staff fold the tray shelf away when hanging a garment on its dedicated adapter; for shoes they unfold the shelf and place the packaged pair in a tray. After the door is closed and locked, an operator reset is required before automatic motion can resume.
+
+The robot grips the **rigid adapter tab or tray handle**, rather than fabric or shoes. For garments, it transfers the loaded adapter to an empty carrier on the C01 loop. For shoes, it puts the tray on the C03 infeed, where the rollers, belt, lift, and telescopic fork place it on one of four levels. The proposed inventory record changes from provisional to occupied only after the destination, item ID, and presence checks agree. The saved replenishment poses are frames 23–31; they illustrate one garment and one shoe-tray refill, not a measured loading time.
+
+### 3. Customer authentication and reservation
+
+At the kiosk the customer enters a pickup number or presents a QR code. The intended control flow checks the order, pickup permission, and item location, then reserves the item so the same stock cannot be retrieved by two requests. The A garment and B shoe compartments remain closed while the mechanism prepares the item. The kiosk screens and logical conditions are represented in the concept; a live payment, QR, order, or inventory server has not been implemented.
+
+### 4. Garment selection and robot handoff — C01, C05, frames 2–6
+
+The C01 carrier loop indexes the requested garment to the robot pickup station and locks at the target position. After checking the carrier and item ID, the robot closes its garment jaws on the adapter's rigid tab, lifts the adapter off its open-bottom saddle, and carries it to the C02 receiving saddle. A retention latch holds the adapter before the gripper releases it. The illustrated poses show indexing, locking, gripping, lifting, and placement; they do not establish a collision-free continuous robot trajectory between poses.
+
+### 5. Garment delivery and adapter recovery — C02, C06, frames 7–10
+
+With the robot clear and the customer door locked, the internal door opens. The complete C02 Z module travels with the Y carriage for the nominal **730 mm Y movement**, then lowers the garment by **300 mm** to the customer pickup position. The internal door must close and lock before the outer garment door can unlock. The customer removes the hanger and garment, while the transport adapter stays available for return inside the system. Removal and door closure are required before the order is marked collected and the empty adapter is recovered. If either door or the item check fails, the design keeps the next movement blocked.
+
+### 6. Shoe retrieval and transfer — C03, C05, frames 11–18
+
+The C03 lift stops at the shelf assigned to the shoe order. Its three-stage fork reaches **600 mm** into the shelf, raises the tray **20 mm** for clearance, retracts, and moves to the belt transfer height. The fork then lowers the tray onto the belt. Linked rollers move it to an infeed stop where its presence and ID are checked before robot pickup. The robot grips the tray handle, passes it through the central cell, and sets it on the output rollers. The belt and roller tops share a nominal **1,080 mm** transfer height; these are model design dimensions, not tested handling performance.
+
+### 7. Shoe pickup and empty-tray return — C06, C03, frames 19–22
+
+The tray reaches the B shoe compartment while its customer shutter remains locked. After the robot returns home, the internal shutter can open to admit the tray; it then closes and locks before the outer shutter opens. The customer takes the shoes and packaging but leaves the reusable tray. Only after removal and outer-shutter closure does the empty tray move back through the internal route. The robot, infeed, belt, lift, and fork return it to an available storage position, and the inventory record is cleared after the return checks succeed.
+
+### 8. Fault gates and reset
+
+The intended sequence checks service-door closure, emergency-stop state, operator reset, robot home, door interlocks, obstruction, timeout, item ID, occupancy, and grip confirmation before permitting the relevant motion. A failed check holds the item or transport carrier in a defined position and calls for operator review instead of silently completing the order. These are **design requirements and tested logical conditions in the model**, not a working PLC, independent safety circuit, or validated recovery procedure.
 
 ## System Architecture
 
