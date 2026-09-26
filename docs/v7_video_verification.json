@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "video": "process_v7_teaser_120s_1080p30.mp4",
+  "sha256": "e23c7f0ac8fb6980a4849bce0c312be8e3feea5e0cb3d035f861ee1cb7fe3d0a",
+  "bytes": 25712971,
+  "duration_seconds": 120.0,
+  "width": 1920,
+  "height": 1080,
+  "fps": "30/1",
+  "decoded_frames": 3600,
+  "video_codec": "h264",
+  "pixel_format": "yuv420p",
+  "audio_codec": "aac",
+  "audio_language": "kor",
+  "audio_sample_rate": 48000,
+  "audio_channels": 2,
+  "audio_peak_dbfs": -1.9956116777488289,
+  "audio_shot_rms": [
+    {
+      "shot": "01_hero",
+      "rms_dbfs": -17.709337283949232
+    },
+    {
+      "shot": "02_staff_garment",
+      "rms_dbfs": -18.39728863924616
+    },
+    {
+      "shot": "03_garment_putaway",
+      "rms_dbfs": -19.813691922608836
+    },
+    {
+      "shot": "04_staff_shoes",
+      "rms_dbfs": -18.650493044480143
+    },
+    {
+      "shot": "05_shoe_putaway",
+      "rms_dbfs": -19.061039096373126
+    },
+    {
+      "shot": "06_auth",
+      "rms_dbfs": -18.726097010144798
+    },
+    {
+      "shot": "07_index",
+      "rms_dbfs": -19.67910913784142
+    },
+    {
+      "shot": "08_garment_pick",
+      "rms_dbfs": -19.637782344236307
+    },
+    {
+      "shot": "09_garment_handoff",
+      "rms_dbfs": -19.476539430314993
+    },
+    {
+      "shot": "10_yz_delivery",
+      "rms_dbfs": -17.793574733955005
+    },
+    {
+      "shot": "11_garment_pickup",
+      "rms_dbfs": -18.40410428869085
+    },
+    {
+      "shot": "12_adapter_return",
+      "rms_dbfs": -18.68977955459275
+    },
+    {
+      "shot": "13_shoe_extract",
+      "rms_dbfs": -18.36182828465749
+    },
+    {
+      "shot": "14_infeed",
+      "rms_dbfs": -18.99537077342526
+    },
+    {
+      "shot": "15_robot_tray",
+      "rms_dbfs": -17.710250065354852
+    },
+    {
+      "shot": "16_shoe_delivery",
+      "rms_dbfs": -18.966740604691882
+    },
+    {
+      "shot": "17_shoe_pickup",
+      "rms_dbfs": -19.569456983000496
+    },
+    {
+      "shot": "18_tray_return",
+      "rms_dbfs": -18.93873538971084
+    },
+    {
+      "shot": "19_shelf_return",
+      "rms_dbfs": -18.243302066770635
+    },
+    {
+      "shot": "20_controls",
+      "rms_dbfs": -19.202051937239037
+    },
+    {
+      "shot": "21_outro",
+      "rms_dbfs": -17.9827578558962
+    }
+  ],
+  "burned_graphics_language": "kor",
+  "external_subtitles": [
+    "process_v7_ko.srt",
+    "process_v7_en.srt"
+  ],
+  "embedded_subtitle_streams": 0,
+  "chapters": 21,
+  "full_audio_video_decode": "PASS",
+  "visual_contact_sheet_frames": [
+    38,
+    203,
+    391,
+    533,
+    728,
+    878,
+    1028,
+    1178,
+    1328,
+    1486,
+    1658,
+    1816,
+    2003,
+    2198,
+    2356,
+    2528,
+    2678,
+    2851,
+    3076,
+    3263,
+    3466,
+    113,
+    308,
+    450,
+    638,
+    803,
+    953,
+    1103,
+    1253,
+    1403,
+    1575,
+    1733,
+    1905,
+    2108,
+    2273,
+    2445,
+    2603,
+    2753,
+    2970,
+    3165,
+    3368,
+    3555
+  ],
+  "source_v7_sha256": "c990f18ee0efe996ded5c8daed2f8a8f85fcce49edf14d70daeda183df2a1e67",
+  "film_blend_sha256": "dc9bff6c77a3a25526c79cf6e9d48835a41991876833b29154a3ab00b0f060d8",
+  "sequence_sha256": "233778631fdf80cb133d1a659e1dcebe12b6780dfac8ea9c4bf45a54d3376fb4",
+  "nominal_motion_frames": 3600,
+  "nominal_tcp_max_error_mm": 0.02478450353135244,
+  "native_frames_sampled": 351,
+  "native_tcp_max_error_mm": 0.019758287946960208,
+  "selected_cargo_intersections": 0,
+  "scope": "Model-based editorial film. Nominal positions and selected sampled rigid-body checks only. Cuts summarize travel; screen duration is not machine takt. Excludes full continuous swept-volume, robot self-collision, flexible garment dynamics, actual FR5e, load and hardware safety certification."
+}

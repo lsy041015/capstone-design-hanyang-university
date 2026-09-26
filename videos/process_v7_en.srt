@@ -1,0 +1,104 @@
+1
+00:00:00,120 --> 00:00:04,920
+From inspected laundry to automated storage and customer pickup. This is the
+v7 project concept.
+
+2
+00:00:05,120 --> 00:00:11,920
+Staff register the garment and load the shared port. After the door is
+locked and reset, the robot grips its rigid adapter.
+
+3
+00:00:12,120 --> 00:00:15,920
+The adapter seats on an empty carrier. Item identity and storage position
+are confirmed.
+
+4
+00:00:16,120 --> 00:00:22,920
+Staff place shoes in a tray on the folding shelf. Closing, locking and
+resetting the port permits automatic handling.
+
+5
+00:00:23,120 --> 00:00:27,920
+The telescopic fork deposits the tray on shelf S02. The inventory record is
+confirmed.
+
+6
+00:00:28,120 --> 00:00:32,920
+The customer authenticates with a pickup number or QR code. The requested
+items are checked and reserved.
+
+7
+00:00:33,120 --> 00:00:37,920
+The garment chain indexes the requested carrier. Position locking and item
+identification precede pickup.
+
+8
+00:00:38,120 --> 00:00:42,920
+The robot grips the rigid adapter, not the fabric, and lifts it clear of the
+support pin.
+
+9
+00:00:43,120 --> 00:00:47,920
+The receiving saddle takes the load. Seating and latch confirmation precede
+gripper release.
+
+10
+00:00:48,120 --> 00:00:53,920
+The receiver travels 730 mm horizontally and lowers 300 mm. The inner door
+is locked before customer access.
+
+11
+00:00:54,120 --> 00:00:58,920
+The customer takes the hanger and garment. The transport adapter remains
+inside.
+
+12
+00:00:59,120 --> 00:01:04,920
+After customer-door locking, the receiver returns and the robot places the
+empty adapter back on H05.
+
+13
+00:01:05,120 --> 00:01:11,920
+The three-stage fork extends 600 mm and raises the tray 20 mm. The lift
+brings it to the belt transfer height.
+
+14
+00:01:12,120 --> 00:01:16,920
+Linked rollers move the tray to the identification stop. The robot grips its
+handle.
+
+15
+00:01:17,120 --> 00:01:22,920
+The robot raises the tray above the pedestal, transfers it, lowers it onto
+the output rollers and retreats.
+
+16
+00:01:23,120 --> 00:01:27,920
+The tray enters the shoe compartment while the outer shutter is locked. The
+inner shutter then closes.
+
+17
+00:01:28,120 --> 00:01:32,920
+The customer takes only the shoes. The reusable tray remains in the
+compartment.
+
+18
+00:01:33,120 --> 00:01:40,920
+After the outer shutter closes, the empty tray returns inside. The robot
+places it back on the infeed.
+
+19
+00:01:41,120 --> 00:01:46,920
+The belt, lift and fork return the empty tray to S02. Pickup and carrier-
+return records complete the order.
+
+20
+00:01:47,120 --> 00:01:53,920
+Door locking, position, identity and grip confirmation gate the next action.
+Faults hold motion for operator review and reset.
+
+21
+00:01:54,120 --> 00:01:59,920
+Staff loading, automated delivery, customer pickup and carrier return form
+one connected workflow. Illustrated with the v7 model.

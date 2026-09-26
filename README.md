@@ -4,7 +4,11 @@
 
 This capstone project proposes an unmanned pickup service for completed laundry in a small store in Korea. Staff inspect, package, and register the finished items; a protected automation cell then stores them and retrieves the correct garment or pair of shoes after customer authentication. The project concept separates staff preparation, automated storage, and customer pickup while keeping people outside the moving machinery.
 
-![Overall process cell](images/01_overall_process_cell.png)
+[![Watch the v7 process teaser — 2 minutes](images/v7_teaser_poster.jpg)](videos/process_v7_teaser_120s_1080p30.mp4)
+
+**[Watch the v7 process teaser](videos/process_v7_teaser_120s_1080p30.mp4)** · 2:00 · 1920 × 1080 · 30 fps · Korean narration and graphics
+
+[공정별 영상 설명 / Chapter guide](docs/v7_process_teaser.md) · [English subtitles](videos/process_v7_en.srt) · [한국어 자막](videos/process_v7_ko.srt)
 
 ## Project Scope
 
@@ -18,13 +22,20 @@ The current demonstration capacity is:
 - 1 robot cell using an official UR5 CB-series STL as a visual substitute for an intended FR5e application study
 - 31 discrete inspection poses covering storage, retrieval, customer pickup, empty-carrier return, and replenishment
 
-The Blender frame numbers represent inspection poses, not seconds or a validated cycle time.
+The original Blender model retains its 31 inspection poses. A separate film uses the v7 geometry and 3,600 animated frames to explain the workflow. Neither the original pose numbers nor the film's two-minute runtime represents measured machine cycle time.
 
-## Process Demonstration Video (v4)
+## Process Teaser (v7)
 
-[Watch or download the 60-second process video](videos/process_v4_60s_1080p30.mp4).
+The 21-shot film follows **staff replenishment → authentication → garment delivery → shoe delivery → empty-carrier return → control conditions**. Close views show the rigid garment adapter, coupled Y–Z receiver, telescopic shoe fork, tray handoff, and interlocked pickup compartments. Korean graphics explain the action and the checks required before the next step. Optional English subtitles are provided as an external SRT file to load in a compatible player.
 
-This earlier v4 animation shows 86 detailed process steps over 60 seconds at 1920 × 1080 and 30 fps. It uses a UR5 substitute model to examine a possible FR5e application. The v7 design described below adds revised mechanisms and 31 static inspection poses; this v4 video does not depict the final v7 geometry or slot count. The animation is a visual demonstration, not a physical performance or safety validation.
+The film is a model-based process explanation. Editorial cuts summarize travel between the staff loading station and storage; the motions are compressed for presentation. Staff loading and customer removal are illustrated without animated people. The QR interface, sensors, and safety conditions remain concept representations. See the [chapter guide and verification scope](docs/v7_process_teaser.md) for the distinction between illustrated motion and tested physical behavior.
+
+<details>
+<summary>Previous v4 video — preserved for comparison</summary>
+
+[Watch or download the earlier 60-second v4 video](videos/process_v4_60s_1080p30.mp4). It contains 86 detailed steps at 1920 × 1080 and 30 fps, using the previous geometry and slot count. Use the v7 teaser above when presenting the current design.
+
+</details>
 
 ## Operating Flow
 
@@ -128,7 +139,7 @@ The customer interface follows a short two-step structure: **1. Authenticate →
 
 The revised design received an internal concept-review score of **74/100**, improved from 32/100 for the previous display-oriented layout. This score is an author assessment, not a certification or safety approval.
 
-The final Blender model passed 177 automated checks, including:
+The original v7 inspection model passed 177 automated checks, including:
 
 - 31 native inspection poses
 - maximum nominal TCP position error of approximately 0.0098 mm at the saved poses
@@ -139,6 +150,8 @@ The final Blender model passed 177 automated checks, including:
 - fail-closed logical checks for door state, emergency stop, reset, obstruction, timeout, ID, occupancy, and grip confirmation
 - no detected triangle intersections between the selected robot/tool meshes and 1,685 selected surrounding rigid parts at the 31 saved poses
 - no detected intersections between the moving garment or tray and the selected pedestal, frame, guard, and robot meshes at the saved poses
+
+The separate v7 film was checked against all 3,600 nominal frame setpoints. Its saved animation was reopened and inspected at 351 sampled frames for TCP position, camera cuts, Y–Z coupling, opposing garment-door states, and selected rigid cargo interference. These checks do not establish a continuously collision-free robot trajectory or validated hardware safety. The [film verification record](docs/v7_process_teaser.md#검증-범위) states the sampling and exclusions.
 
 ![Completed return state](images/09_completed_return_state.png)
 
@@ -185,7 +198,7 @@ Reference material:
 
 ## Repository Contents
 
-This public repository contains project images and this English project description only. Blender files, automation scripts, verification scripts, and other source files are intentionally excluded.
+This public repository contains project images, the v7 process teaser, the earlier v4 video, Korean and English subtitle files, process explanations, and a compact video verification record. Editable Blender models and production scripts are not included.
 
 ---
 
