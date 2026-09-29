@@ -164,6 +164,27 @@ area (inspection and packing, loading window, VLM bay, C04 control cabinet, serv
 Cycle times on the model timeline (assumed axis speeds, not measured): order → A garment ready 27.5 s, order → B shoes ready 40.1 s,
 order → A ready in low position 28.4 s, empty adapter return 19–24 s, empty tray return 40.1 s, staff loading of one garment about 7 s.
 
+### Exploded views
+
+Eight exploded views rendered orthographically from the model: modules C01–C06, the step 2-4 tab-grip interface (gripper, adapter, carrier) and the shoe tray with its saddle bag. Part lists are in [docs/v2.0_exploded_views.md](docs/v2.0_exploded_views.md) (Korean).
+
+<p align="center"><img src="images/v2.0/exploded_sheet.jpg" alt="Eight exploded views of the V2.0 modules and carriers" width="100%"></p>
+
+<!-- v2.0-exploded:start -->
+| View | Subject | Related steps |
+|---|---|---|
+| [E1](images/v2.0/exploded/E1_c01_garment_loop.png) | C01 의류 순환 보관 | 1-2 · 1-3 · 1-4 · 2-3 · 2-4 · 3-1 · 4-4 |
+| [E2](images/v2.0/exploded/E2_c02_garment_compartment_a.png) | C02 의류 수령함 A | 2-5 · 2-7 · 2-8 · 3-1 · 4-2 · 4-3 |
+| [E3](images/v2.0/exploded/E3_c03_shoe_vlm.png) | C03 신발 수직 보관기 (VLM) | 1-5 · 1-6 · 2-6 · 3-2 |
+| [E4](images/v2.0/exploded/E4_c05_robot_cell.png) | C05 로봇 셀 (UR5 대체 형상) | 2-4 · 2-5 · 2-6 · 3-1 · 3-2 · 4-4 |
+| [E5](images/v2.0/exploded/E5_c06_shoe_compartment_b.png) | C06 신발 수령함 B | 2-6 · 2-9 · 3-2 |
+| [E6](images/v2.0/exploded/E6_c04_control_cabinet.png) | C04 제어반 | 2-10 · 5-1 · 5-2 · 5-3 |
+| [E7](images/v2.0/exploded/E7_tab_grip_interface.png) | 탭 파지 인터페이스 (세부 공정 2-4) | 2-4 · 2-5 · 3-1 · 4-4 |
+| [E8](images/v2.0/exploded/E8_shoe_tray_saddle_bag.png) | 신발 트레이 · 새들백 | 1-5 · 2-6 · 2-9 · 3-2 |
+<!-- v2.0-exploded:end -->
+
+Offsets are for illustration, not a disassembly sequence. E2 shows the inner shutter closed; E7 shows the pose at the tab-grip moment (master 56.5 s).
+
 ## Verification
 
 Checks reopen the saved model and evaluate real frames. They cover Blender geometry and logic only, not loads, purchased-part ratings,
@@ -198,6 +219,7 @@ docs/v2.0_*                         V2.0 process images, design, verification, t
 docs/v7_* , docs/UR5_LICENSE.txt    archived v7 docs, UR5 mesh notice
 images/v2.0/<process>/*.jpg         V2.0 process images (6 folders) + one sheet per process
 images/v2.0/process_map.png         V2.0 process map (5 groups, 25 steps)
+images/v2.0/exploded/*.png          V2.0 exploded views E1–E8 + exploded_sheet.jpg
 images/01_…–12_…, process_gallery   v7 renders
 videos/process_v2.0_*               V2.0 teaser and Korean subtitles
 videos/process_v7_*, process_v4_*   earlier videos and subtitles
