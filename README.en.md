@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/capstone-banner.png" alt="Automated Unmanned Laundry Pickup System — Blender concept of an automated cell that stores finished laundry and hands it to authenticated customers" width="100%">
+  <img src="assets/capstone-banner.png" alt="Automated Unmanned Laundry Pickup System V2.0 — Blender concept of a 24-hour pickup store whose automated cell stores finished laundry and hands it to authenticated customers" width="100%">
 </p>
 
 <p align="center"><a href="README.md">한국어</a> · <b>English</b></p>
