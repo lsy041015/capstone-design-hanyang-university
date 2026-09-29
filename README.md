@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/capstone-banner.png" alt="무인 세탁물 수령 시스템 — 세탁 완료품을 보관하고 인증한 고객에게 내주는 자동화 셀의 Blender 컨셉" width="100%">
+  <img src="assets/capstone-banner.png" alt="무인 세탁물 수령 시스템 V2.0 — 세탁 완료품을 보관하고 인증한 고객에게 24시간 내주는 무인 세탁 수령소의 Blender 컨셉" width="100%">
 </p>
 
 <p align="center"><b>한국어</b> · <a href="README.en.md">English</a></p>
