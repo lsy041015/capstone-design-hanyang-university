@@ -1,0 +1,28 @@
+{
+  "file": "videos/process_v2.0_teaser_120s_1080p30.mp4",
+  "bytes": 36930573,
+  "sha256": "cc1de31781b3d6f44fb71add3e39f160d9b1e261e67612fb068f222f72957e5d",
+  "video": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "fps": "30/1",
+    "frames": 3600,
+    "pix_fmt": "yuv420p",
+    "duration": 120.0
+  },
+  "audio": {
+    "codec": "aac",
+    "rate": 48000,
+    "channels": 2,
+    "duration": 120.0
+  },
+  "chapters": 15,
+  "decode_errors": [],
+  "audio_levels": [
+    "mean_volume: -18.7 dB",
+    "max_volume: -1.5 dB"
+  ],
+  "pass": true,
+  "renamed_from": "무인세탁소_v8_모션스터디_티저_120초_1080p30.mp4"
+}
