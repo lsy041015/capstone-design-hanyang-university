@@ -1,0 +1,83 @@
+{
+  "file": "무인세탁소_통합시연_v8.blend (V2.0 통합 시연 모델, 저장소에는 없음)",
+  "frames": [
+    1,
+    6620
+  ],
+  "fps": 30,
+  "checks": {
+    "drivers_valid_simple": {
+      "ok": true,
+      "drivers": 223,
+      "invalid": [],
+      "not_simple": []
+    },
+    "kinematic_couplings": {
+      "ok": true,
+      "samples": 414,
+      "worst": {
+        "wheel": 1.2e-06,
+        "carrier": 2.42e-05,
+        "chain": 0.0,
+        "ypulley": 4e-07,
+        "zscrew": 1.38e-05,
+        "roller": 1e-06,
+        "lift": 1e-07
+      },
+      "rule": "wheel = s/R; carrier on path(s); Y pulley = -y/r; Z screw = z/lead*2pi; roller = x/r; lift = z"
+    },
+    "robot_fk_limits_speed": {
+      "ok": true,
+      "fk_error_m": 1.1616483888053572e-06,
+      "max_abs_joint_rad": 4.184360980987549,
+      "max_joint_speed_deg_s": [
+        72.0,
+        62.3,
+        72.0,
+        72.0,
+        72.0,
+        72.0
+      ],
+      "max_tcp_speed_m_s": 1.079,
+      "limits": "UR5 CB: +/-360 deg, 180 deg/s (substitute model)"
+    },
+    "custody_handoff_continuity": {
+      "ok": true,
+      "handoffs": 31,
+      "worst": {
+        "obj": "SB_NEW",
+        "frame": 764,
+        "from_": "SOCK_BENCH_BAG",
+        "to": "CARRY_SB_NEW",
+        "jump_mm": 0.777
+      }
+    },
+    "interlock_logic_every_frame": {
+      "ok": true,
+      "frames": 6620,
+      "violations": 0,
+      "first": []
+    },
+    "robot_cargo_interference": {
+      "ok": true,
+      "motion_frames": 3012,
+      "checked": 1004,
+      "step": 3,
+      "seconds": 126.7,
+      "hits": 0,
+      "first": []
+    },
+    "loop_garment_spacing": {
+      "ok": true,
+      "loop_positions": 12,
+      "pairs_checked": 2680,
+      "overlaps": 0,
+      "first": [],
+      "note": "bagged envelopes up to 500 x 90 mm on 203.2 mm carrier pitch; at the turns only the thin inner edges approach"
+    }
+  },
+  "summary": {
+    "passed": 7,
+    "failed": []
+  }
+}

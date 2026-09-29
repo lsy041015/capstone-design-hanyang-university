@@ -1,0 +1,32 @@
+﻿속성,설명 [단위],최소,최대,기본값
+c01_s,"C01 chain travel, counter-clockwise positive (drive encoder) [m]",-1000.0,1000.0,0.0
+c01_lock,C01 index pin engaged at pick station [0-1],0.0,1.0,0.0
+c02_y,C02 receiver travel toward customer door [m],0.0,0.45,0.0
+c02_z,C02 receiver lowering (accessibility) [m],0.0,0.23,0.0
+c02_latch,C02 retention latch closed [0-1],0.0,1.0,0.0
+a_shutter,A inner roll-up shutter open fraction [0-1],0.0,1.0,0.0
+a_door,A customer door opening angle [deg],0.0,105.0,0.0
+a_lock,A customer door lock engaged [0-1],0.0,1.0,0.0
+c06_x,C06 tray conveyor travel toward customer [m],0.0,0.7,0.0
+b_shutter,B inner shutter open fraction [0-1],0.0,1.0,0.0
+b_door,B customer door opening angle [deg],0.0,100.0,0.0
+b_lock,B customer door lock engaged [0-1],0.0,1.0,0.0
+c03_z,C03 lift platform tray-base height [m],0.3,1.95,0.0
+c03_e,"C03 extractor carriage, + north (staff) / - south (robot port) [m]",-0.8,0.8,0.0
+c03_hook,C03 extractor hook raised (engaged) [0-1],0.0,1.0,0.0
+c03_p,C03 robot-port conveyor travel (south column -> port) [m],0.0,0.41,0.0
+r_j1,Robot J1 base [rad],-6.283185307179586,6.283185307179586,0.0
+r_j2,Robot J2 shoulder [rad],-6.283185307179586,6.283185307179586,0.0
+r_j3,Robot J3 elbow [rad],-6.283185307179586,6.283185307179586,0.0
+r_j4,Robot J4 wrist 1 [rad],-6.283185307179586,6.283185307179586,0.0
+r_j5,Robot J5 wrist 2 [rad],-6.283185307179586,6.283185307179586,0.0
+r_j6,Robot J6 wrist 3 [rad],-6.283185307179586,6.283185307179586,0.0
+r_grip,Gripper finger gap [m],0.0,0.05,0.0
+svc_door,Service door opening angle (guard-locked in AUTO) [deg],0.0,100.0,0.0
+cab_door,C04 cabinet door opening angle [deg],0.0,110.0,0.0
+lamp_g,Signal tower green (auto running / ready) [0-1],0.0,1.0,0.0
+lamp_a,Signal tower amber (service / attention) [0-1],0.0,1.0,0.0
+lamp_r,Signal tower red (stopped / fault) [0-1],0.0,1.0,0.0
+led_a,A compartment status light [0 idle / 1 preparing / 2 ready],0.0,2.0,0.0
+led_b,B compartment status light [0 idle / 1 preparing / 2 ready],0.0,2.0,0.0
+curtain,Staff window light curtain beam interrupted [0-1],0.0,1.0,0.0

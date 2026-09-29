@@ -1,0 +1,53 @@
+﻿태그,모듈,Blender 오브젝트,부품(분류 예시),설명,검증 범위
+C01_LOCK,C01 의류 순환 보관,C01_INDEX_PIN,,정지 위치 잠금핀: 로봇 파지 중 체인 이동 기계적 차단,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_CURTAIN,C01 의류 순환 보관,C01_curtain_column,Type 4 light curtain 30 mm resolution; beam break stops chain (Cat 3 / PLd class example),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_CURTAIN,C01 의류 순환 보관,C01_curtain_column.001,Type 4 light curtain 30 mm resolution; beam break stops chain (Cat 3 / PLd class example),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_IDX,C01 의류 순환 보관,C01_drive_encoder,Absolute multiturn encoder,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_DRIVE,C01 의류 순환 보관,C01_drive_gearbox,Hollow-shaft helical-worm gearmotor with brake (class example; ratio chosen for 0.25 m/s chain),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_ID,C01 의류 순환 보관,C01_rfid_reader,HF RFID reader (ISO 15693) for adapter/item ID recheck,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_HMI,C01 의류 순환 보관,C01_staff_hmi,"7 in HMI: carrier to load, item ID, confirm",,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C01_STAFF_ID,C01 의류 순환 보관,C01_staff_rfid,RFID/barcode scan pad for item registration at load,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_LATCH,C02 의류 수령함 A,C02_LATCH,,유지 래치: 이송 중 어댑터 이탈 방지,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_Y,C02 의류 수령함 A,C02_Y_module,"Toothed-belt linear module 60x60, stroke 450 mm (class example)",,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_Y,C02 의류 수령함 A,C02_Y_motor,AC servo 100 W with holding brake (class example),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_Z,C02 의류 수령함 A,C02_Z_motor,"Stepper-servo 60 mm with brake, ball screw Ø12 lead 10 (class example)",,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_A_OUT,C02 의류 수령함 A,C02_door_emlock,Electromagnetic lock with door-closed and lock-monitoring contacts,고객문 잠금 감시,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_PRESENT,C02 의류 수령함 A,C02_removal_sensor,Diffuse ToF sensor: garment present / removed (customer pickup confirmation),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_SEAT,C02 의류 수령함 A,C02_seat_sensor,Inductive sensor: adapter seated on receiver pin,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_EDGE,C02 의류 수령함 A,C02_shutter_edge,"Safety edge (pressure-sensitive, EN ISO 13856-2 class example)",,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_A_IN,C02 의류 수령함 A,C02_shutter_lock,,내부 셔터 닫힘·잠금 감시 (고객문 개방 조건),설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C02_SHUTTER,C02 의류 수령함 A,C02_shutter_motor,Tubular motor with brake and limit switches (class example),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_EXT,C03 신발 VLM,C03_EXTRACTOR,,추출기: 후크를 올려 트레이 끝 홈에 걸고 당기기/밀기,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_BAY_LC,C03 신발 VLM,C03_bay_curtain,Type 4 safety light curtain 14 mm resolution (bay access),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_BAY_LC,C03 신발 VLM,C03_bay_curtain.001,Type 4 safety light curtain 14 mm resolution (bay access),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_Z,C03 신발 VLM,C03_lift_gearbox,Servo gearmotor 400 W with holding brake on lift top shaft (class example),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_BOTTOM,C03 신발 VLM,C03_limit_BOTTOM,Overtravel limit switch (hard-wired to drive STO),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_TOP,C03 신발 VLM,C03_limit_TOP,Overtravel limit switch (hard-wired to drive STO),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_N0,C03 신발 VLM,C03_occ_N0,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_N1,C03 신발 VLM,C03_occ_N1,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_N3,C03 신발 VLM,C03_occ_N3,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_N4,C03 신발 VLM,C03_occ_N4,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_N5,C03 신발 VLM,C03_occ_N5,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_N6,C03 신발 VLM,C03_occ_N6,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_S0,C03 신발 VLM,C03_occ_S0,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_S1,C03 신발 VLM,C03_occ_S1,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_S3,C03 신발 VLM,C03_occ_S3,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_S4,C03 신발 VLM,C03_occ_S4,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_S5,C03 신발 VLM,C03_occ_S5,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_OCC_S6,C03 신발 VLM,C03_occ_S6,Slot occupancy photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_PLATFORM,C03 신발 VLM,C03_platform_pe,Tray-on-platform photo sensor,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C03_PORT,C03 신발 VLM,C03_port_pe,Tray at robot port photo-eye,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_B_OUT,C06 신발 수령함 B,C06_door_emlock,Electromagnetic lock with monitoring contacts,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_HANDOVER,C06 신발 수령함 B,C06_pe_HANDOVER,Retro-reflective photo-eye: tray present,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_PRESENT,C06 신발 수령함 B,C06_pe_PRESENT,Retro-reflective photo-eye: tray present,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_CONV,C06 신발 수령함 B,C06_roller_07,"24 V motor-driven roller (MDR) Ø50, drives the zone via poly-V bands",,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_B_SHUTTER,C06 신발 수령함 B,C06_shutter_actuator,Electric cylinder 500 mm stroke (class example),,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_B_IN,C06 신발 수령함 B,C06_shutter_lock,,내부 셔터 닫힘 감시 (고객문 개방 조건),설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C06_EMPTY,C06 신발 수령함 B,C06_tof,ToF sensor looking down: shoes removed / tray empty check,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+CELL_SVC_LOCK,셀 가드·정비,CELL_svc_guardlock,"Guard-locking interlock (power-to-unlock, PLe class example, ISO 14119)",정비문 가드 잠금: 로봇·축 정지 확인 후에만 해제,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C05_J1,C05 로봇·그리퍼,UR5_J1,,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C05_J2,C05 로봇·그리퍼,UR5_J2,,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C05_J3,C05 로봇·그리퍼,UR5_J3,,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C05_J4,C05 로봇·그리퍼,UR5_J4,,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C05_J5,C05 로봇·그리퍼,UR5_J5,,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
+C05_J6,C05 로봇·그리퍼,UR5_J6,,,설계 신호 (Blender 논리 상태). PLC 주소·회로·통신 미구현
