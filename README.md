@@ -73,7 +73,7 @@ V2.0은 셀만 따로 그리지 않고 매장 하나를 통째로 설계했습�
 | **빈 운반구 회수** | 고객은 옷걸이째 의류와 새들백만 가져갑니다. 빈 어댑터는 원래 캐리어로, 빈 트레이는 VLM 빈 칸으로 자동 복귀합니다. |
 | **접근성** | 낮은 위치 모드를 고르면 걸이를 23 cm 내려 1.20 m에서 받습니다. 회전 공간 지름 1.5 m, 조작부 0.4–1.2 m. |
 | **정비** | SERVICE 키 → 로봇 원점·전 축 정지 확인 → 가드 잠금 해제 → 정비문 → LOTO → 닫힘·잠금 → AUTO 키 → 리셋. 자동 재기동은 없습니다. |
-| **결과물** | 공정 분류도, 세부 공정 이미지 42장(6개 공정 폴더), 2분 V2.0 티저와 한국어 자막, 공정 설계서, 검증 기록, 설계 신호·부품·제어 속성 목록(CSV). |
+| **결과물** | 공정 분류도, 세부 공정 이미지 42장(6개 공정 폴더), 기구 분해도 8장, 2분 V2.0 티저와 한국어 자막, 공정 설계서, 검증 기록, 설계 신호·부품·제어 속성 목록(CSV). |
 
 ## 3. 동작 방식
 
@@ -282,6 +282,27 @@ mpv --sub-file=videos/process_v2.0_ko.srt videos/process_v2.0_teaser_120s_1080p3
 | 신발 트레이 | 420 × 320 × 100 mm, 측면 POM 러너, 양 끝 추출 홈, 칸막이 위 탭(바닥 위 190 mm) | VLM 레일·덱·벨트·롤러의 공통 바닥면 |
 | 신발 새들백 | 투명 파우치 2개를 칸막이 위 스트랩으로 연결, 손잡이 고리 | 고객·직원이 한 손으로 한 켤레를 넣고 뺍니다. 스트랩은 로봇 탭과 겹치지 않게 앞쪽 100 mm에 있습니다. |
 
+### 기구 분해도
+
+모듈마다 부품 그룹을 벌려 놓고 정사영으로 렌더한 분해도 8장입니다. C01–C06 여섯 모듈에, 핵심 세부 공정인 2-4 탭 파지의 그리퍼·어댑터·캐리어 인터페이스와 신발 트레이·새들백을 더했습니다. 부품 번호표는 [docs/v2.0_exploded_views.md](docs/v2.0_exploded_views.md)에 있습니다.
+
+<p align="center"><img src="images/v2.0/exploded_sheet.jpg" alt="기구 분해도 8장 모음: C01 의류 루프, C02 A 수령함, C03 VLM, C05 로봇 셀, C06 B 수령함, C04 제어반, 탭 파지 인터페이스, 신발 트레이·새들백" width="100%"></p>
+
+<!-- v2.0-exploded:start -->
+| 분해도 | 대상 | 관련 세부 공정 |
+|---|---|---|
+| [E1](images/v2.0/exploded/E1_c01_garment_loop.png) | C01 의류 순환 보관 | 1-2 · 1-3 · 1-4 · 2-3 · 2-4 · 3-1 · 4-4 |
+| [E2](images/v2.0/exploded/E2_c02_garment_compartment_a.png) | C02 의류 수령함 A | 2-5 · 2-7 · 2-8 · 3-1 · 4-2 · 4-3 |
+| [E3](images/v2.0/exploded/E3_c03_shoe_vlm.png) | C03 신발 수직 보관기 (VLM) | 1-5 · 1-6 · 2-6 · 3-2 |
+| [E4](images/v2.0/exploded/E4_c05_robot_cell.png) | C05 로봇 셀 (UR5 대체 형상) | 2-4 · 2-5 · 2-6 · 3-1 · 3-2 · 4-4 |
+| [E5](images/v2.0/exploded/E5_c06_shoe_compartment_b.png) | C06 신발 수령함 B | 2-6 · 2-9 · 3-2 |
+| [E6](images/v2.0/exploded/E6_c04_control_cabinet.png) | C04 제어반 | 2-10 · 5-1 · 5-2 · 5-3 |
+| [E7](images/v2.0/exploded/E7_tab_grip_interface.png) | 탭 파지 인터페이스 (세부 공정 2-4) | 2-4 · 2-5 · 3-1 · 4-4 |
+| [E8](images/v2.0/exploded/E8_shoe_tray_saddle_bag.png) | 신발 트레이 · 새들백 | 1-5 · 2-6 · 2-9 · 3-2 |
+<!-- v2.0-exploded:end -->
+
+분해 위치는 설명용 배치이며 실제 분해 순서가 아닙니다. E2는 내부 셔터를 닫힌 상태로, E7은 2-4 탭 파지 순간(마스터 56.5 s)의 자세로 렌더했습니다.
+
 ## 8. 공정 순서와 허용 조건
 
 각 동작 뒤에는 확인이 하나씩 붙고, 확인이 실패하면 다음 동작을 막습니다. 전체 표는 [공정 설계서 5장](docs/v2.0_process_design.md#5-공정-순서와-허용-조건)에 있습니다.
@@ -385,6 +406,7 @@ capstone-design-hanyang-university/
 ├── docs/
 │   ├── v2.0_process_images.md          # V2.0 세부 공정 이미지 42장과 설명
 │   ├── v2.0_process_design.md          # V2.0 공정 설계서: 배치, 모듈, 순서, 시간, 안전, 정비
+│   ├── v2.0_exploded_views.md          # V2.0 기구 분해도 8장과 부품 번호표
 │   ├── v2.0_verification.md / .json    # V2.0 모델 검증 기록 7/7
 │   ├── v2.0_video_verification.json    # V2.0 티저 검증 기록
 │   ├── v2.0_teaser.md                  # V2.0 티저 샷별 설명
@@ -398,6 +420,7 @@ capstone-design-hanyang-university/
 │   ├── v2.0/<공정>/*.jpg                 # 0_store … 5_service, 공정 폴더 6개
 │   ├── v2.0/<공정>.jpg                   # 공정별 모음 이미지
 │   ├── v2.0/process_map.png              # 공정 분류도 (공정군 5 · 세부 공정 25)
+│   ├── v2.0/exploded/*.png               # 기구 분해도 8장 (E1–E8) + exploded_sheet.jpg
 │   ├── v2.0_teaser_poster.jpg
 │   └── 01–12 렌더, process_gallery.jpg, v7_teaser_poster.jpg   # v7
 └── videos/
