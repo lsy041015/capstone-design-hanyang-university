@@ -76,6 +76,10 @@ and a 6,620-frame 1:1 master timeline (220.6 s at 30 fps) with 25 detailed proce
 Every image with its (Korean) caption is listed in [docs/v2.0_process_images.md](docs/v2.0_process_images.md).
 People are stylized mannequins for reach and flow studies; image 4-2 is a section view with one liner of compartment A hidden.
 
+The process map sorts the 25 detailed steps into five process groups and tags each step with its actors (staff, customer, robot, automated equipment), modules (C01–C06) and master-timeline time. It is generated from the model timeline; labels are in Korean.
+
+<p align="center"><img src="images/v2.0/process_map.png" alt="V2.0 process map: five process groups and 25 detailed steps tagged with actors and modules" width="100%"></p>
+
 <!-- v2.0-images:start -->
 ### 0 · Store layout and flows
 
@@ -193,6 +197,7 @@ README.md / README.en.md            project description (Korean / English)
 docs/v2.0_*                         V2.0 process images, design, verification, teaser notes, CSV lists
 docs/v7_* , docs/UR5_LICENSE.txt    archived v7 docs, UR5 mesh notice
 images/v2.0/<process>/*.jpg         V2.0 process images (6 folders) + one sheet per process
+images/v2.0/process_map.png         V2.0 process map (5 groups, 25 steps)
 images/01_…–12_…, process_gallery   v7 renders
 videos/process_v2.0_*               V2.0 teaser and Korean subtitles
 videos/process_v7_*, process_v4_*   earlier videos and subtitles
