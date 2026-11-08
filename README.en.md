@@ -16,6 +16,9 @@ A Hanyang University Capstone Design project.
 > 7 automated checks (0 interlock violations over 6,620 frames, 0 robot interference hits over 1,004 frames, and more). Times are model times computed
 > from assumed axis speeds, and the robot geometry is a UR5 CB-series stand-in for the target FR5e. Please read [Limitations](#limitations) first.
 
+> **New PoC (2026-11):** the garment pickup step alone in a 2.5 m x 2.5 m profile cell with a UR5e, a DH-Robotics PGC-50-35 gripper and a
+> self-designed overhead conveyor (Creo: 17 parts, assembly, 9 drawings, BOM) → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
+
 ---
 
 ## Why
