@@ -1,0 +1,32 @@
+﻿No,Part / spec,Type,Material,Qty,Use / note,Creo file
+1,CV_RAIL_IN30,자체 제작 (3D 프린트),PETG,12,"inner curve rail, 30 deg, R374-394",cv_rail_in30.prt
+2,CV_RAIL_OUT30,자체 제작 (3D 프린트),PETG,12,"outer curve rail, 30 deg, R406-426",cv_rail_out30.prt
+3,CV_BRIDGE,자체 제작 (3D 프린트),PETG,28,"U-bridge: ties rails, carries curve idler, M8 rod",cv_bridge.prt
+4,CV_DRIVE_BRIDGE,자체 제작 (3D 프린트),PETG,1,"drive bridge: NEMA17 plate (10 mm standoffs), pinch backup roller slot",cv_drive_bridge.prt
+5,CV_TROLLEY,자체 제작 (3D 프린트),PETG,10,carrier trolley body on 4 x 625ZZ (M5x65 axles),cv_trolley.prt
+6,CV_STEM,자체 제작 (3D 프린트),PETG,10,"carrier stem: comb jaws (belt), 2 x 623ZZ gap guides, fork + pin",cv_stem.prt
+7,CV_PIN_SLEEVE,자체 제작 (3D 프린트),PETG,10,garment pin sleeve D12 on M5x40,cv_pin_sleeve.prt
+8,CV_PULLEY_GT2_40T,자체 제작 (3D 프린트),PETG,1,"GT2 40T drive pulley, teeth band 10 + top flange, hub, 5 mm bore",cv_pulley_gt2_40t.prt
+9,CV_SENSOR_BRACKET,자체 제작 (3D 프린트),PETG,1,LJ12A3-4 index sensor bracket on the outer rail T-slot,cv_sensor_bracket.prt
+10,PUR_2020_L1000,구매품 (단순 형상 모델),Al 6063,4,"Al profile 2020 (6 slot), L1000 straight rail",pur_2020_l1000.prt
+11,PUR_4040_L2420,구매품 (단순 형상 모델),Al 6063,2,"Al profile 4040 (10 slot), L2420 top beam along X",pur_4040_l2420.prt
+12,PUR_4040_L784,구매품 (단순 형상 모델),Al 6063,4,"Al profile 4040, L784 top beam along Y between the X beams",pur_4040_l784.prt
+13,PUR_NEMA17,구매품 (단순 형상 모델),steel,1,"NEMA17 stepper 42x42x48, 5 mm shaft L24",pur_nema17.prt
+14,PUR_625ZZ,구매품 (단순 형상 모델),steel,94,ball bearing 625ZZ 5x16x5,pur_625zz.prt
+15,PUR_623ZZ,구매품 (단순 형상 모델),steel,20,ball bearing 623ZZ 3x10x4,pur_623zz.prt
+16,PUR_M8_ROD_L400,구매품 (단순 형상 모델),steel,12,M8 threaded rod L400 drop hanger,pur_m8_rod_l400.prt
+17,PUR_LJ12A3,구매품 (단순 형상 모델),brass,1,"inductive sensor LJ12A3-4-Z/BX, M12 x 60",pur_lj12a3.prt
+18,"GT2 open timing belt, 15 mm wide, glass-fibre core",구매품 (BOM만),,4.65 m,"drive belt, joined in STEM_01 comb",
+19,M5 x 65 socket head + nyloc,구매품 (BOM만),,20,trolley wheel axles (2 per trolley),
+20,M5 x 40 socket head + nyloc,구매품 (BOM만),,10,garment pin through the fork + sleeve,
+21,M5 x 30 socket head + thin nut + washer,구매품 (BOM만),,27,curve idler axles (26) + backup roller (1),
+22,M3 x 30 socket head (self-tap into stem),구매품 (BOM만),,20,623ZZ gap-guide axles,
+23,M3 x 40 socket head + nyloc,구매품 (BOM만),,10,stem-to-trolley bolt,
+24,M3 x 8 steel pan head,구매품 (BOM만),,10,index flag on each trolley,
+25,M4 x 12 socket head (self-tap) / M4 T-nut,구매품 (BOM만),,112,bridge feet to printed rails / 2020 rails,
+26,M4 T-nut + M4 x 10,구매품 (BOM만),,2,sensor bracket,
+27,M3 x 10 + 10 mm standoffs (M3),구매품 (BOM만),,4,NEMA17 mount,
+28,M8 nut + washer,구매품 (BOM만),,48,"rods: 2 at the bridge, 2 at the top beam",
+29,"M8 drop-in T-nut (4040, slot 10)",구매품 (BOM만),,12,rod tops,
+30,4040 corner bracket + M8 hardware,구매품 (BOM만),,8,Y top beams to X top beams,
+31,Stepper driver TMC2209 + 24 V PSU + MCU (e.g. ESP32 / Arduino),구매품 (BOM만),,1,"conveyor control, index by sensor + step count",
