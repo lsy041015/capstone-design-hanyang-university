@@ -91,8 +91,11 @@
 | `renders/` | 정지 렌더 8장 (셀 전경, 컨베이어, 구동부, 파지, 인출·선회, 선반 거치, 고객 수령, DH 그리퍼 근접) |
 | `docs/overhead_conveyor_manual_ko.pdf` | **상세설명서 24쪽**: 동작 원리 도식(평면 배치·트랙 단면·핀치 구동·인덱싱 순서), 분해도, BOM, 설계 계산, 조립 순서, 검증, A3 도면 10장 |
 | `exploded/` | 분해도 4장 (E1 캐리어, E2 곡선 트랙 모듈, E3 구동부, E4 인덱스 센서), BOM 번호 풍선 |
-| `drawings/` | 전체 조립도 `CV_CONVEYOR.pdf` (1:10) + 가공품 2D 도면 9장 (A3, 치수·표제란) + 묶음 `CV_drawings_all.pdf` |
-| `cad/creo_native/` | Creo 13.4 원본: 파트 17 (.prt), 어셈블리 `cv_conveyor.asm`, 도면 9 (.drw) |
+| `drawings/CV_CELL_LAYOUT.pdf` | **셀 전체 배치도** (Creo `cv_cell.asm`, ANSI C, 1:20, 3각법: 평면·정면·우측면, 장비 13종 일람표) |
+| `drawings/` | 컨베이어 조립도 `CV_CONVEYOR.pdf` (1:10) + 가공품 2D 도면 9장 (A3, 치수·표제란) + 묶음 `CV_drawings_all.pdf` |
+| `cad/creo_native/` | Creo 13.4 원본: 컨베이어 파트 17 + 셀 파트 23 + 로봇·그리퍼 STL 가져오기 16 (`imp_*`), 어셈블리 `cv_conveyor.asm`·`cv_cell.asm`·`cv_cell_view.asm`, 도면 |
+| `cad/step/cv_cell.stp` | 셀 전체 STEP (프레임·아크릴·컨베이어·로봇 포함) |
+| `cad/third_party/` | UR5e 메시 라이선스(BSD-3), DH AG-95 URDF 출처(package.xml BSD) |
 | `cad/step/` | 파트별 STEP + 어셈블리 `cv_conveyor.stp` |
 | `cad/stl/` | 출력용 STL (`cv_*` 9종 PETG), 구매품 단순 형상 STL |
 | `BOM.csv` | 자체 제작 9종 + 구매품 8종 + 체결·전장 부품 (UTF-8 BOM, 엑셀에서 바로 열림) |

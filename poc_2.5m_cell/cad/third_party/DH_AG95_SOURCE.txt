@@ -1,0 +1,3 @@
+Source: https://github.com/DH-Robotics/dh_gripper_ros (master, pushed 2023-07-28)
+package: dh_robotics_ag95_description, package.xml <license>BSD</license>, maintainer Shelling Ding <Renjie.ding@dh-robotics.com>
+The repository has no LICENSE file; only the package.xml declares BSD. Downloaded 2026-11-08 for a university capstone PoC (visual model only).
