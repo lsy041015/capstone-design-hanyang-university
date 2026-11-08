@@ -64,6 +64,13 @@
 | 속도 0.3 m/s | 풀리 1회전 80 mm → 225 rpm |
 | 프린트 레일 처짐 (지지 간격 105 mm, 30 N 집중) | 0.1 mm 미만 |
 
+### 분해도
+
+<p align="center"><img src="exploded/E1_carrier.jpg" width="49%"> <img src="exploded/E2_curve_module.jpg" width="49%"></p>
+<p align="center"><img src="exploded/E3_drive.jpg" width="49%"> <img src="exploded/E4_index_sensor.jpg" width="49%"></p>
+
+동작 원리와 조립 순서는 [상세설명서 PDF](docs/overhead_conveyor_manual_ko.pdf)에 정리했습니다.
+
 ## 4. 검증
 
 | 항목 | 결과 |
@@ -82,7 +89,9 @@
 | 경로 | 내용 |
 |---|---|
 | `renders/` | 정지 렌더 8장 (셀 전경, 컨베이어, 구동부, 파지, 인출·선회, 선반 거치, 고객 수령, DH 그리퍼 근접) |
-| `drawings/` | 가공품 2D 도면 9장 (A3, 치수·표제란) + 묶음 `CV_drawings_all.pdf` |
+| `docs/overhead_conveyor_manual_ko.pdf` | **상세설명서 24쪽**: 동작 원리 도식(평면 배치·트랙 단면·핀치 구동·인덱싱 순서), 분해도, BOM, 설계 계산, 조립 순서, 검증, A3 도면 10장 |
+| `exploded/` | 분해도 4장 (E1 캐리어, E2 곡선 트랙 모듈, E3 구동부, E4 인덱스 센서), BOM 번호 풍선 |
+| `drawings/` | 전체 조립도 `CV_CONVEYOR.pdf` (1:10) + 가공품 2D 도면 9장 (A3, 치수·표제란) + 묶음 `CV_drawings_all.pdf` |
 | `cad/creo_native/` | Creo 13.4 원본: 파트 17 (.prt), 어셈블리 `cv_conveyor.asm`, 도면 9 (.drw) |
 | `cad/step/` | 파트별 STEP + 어셈블리 `cv_conveyor.stp` |
 | `cad/stl/` | 출력용 STL (`cv_*` 9종 PETG), 구매품 단순 형상 STL |
