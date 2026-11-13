@@ -16,15 +16,13 @@
 > (인터록 6,620프레임 위반 0, 로봇 동작 1,004프레임 간섭 0 등). 시간은 가정 축 속도로 계산한 모델 시간이고, 로봇 형상은 목표 기종 FR5e가 아닌
 > UR5 CB-series 대체 메시입니다. [한계와 다음 단계](#16-한계와-다음-단계)를 먼저 읽어 주세요.
 
-> **새 PoC (2026-11):** 의류 출고 공정만 2.5 m × 2.5 m 프로파일 셀로 줄인 졸업작품 PoC입니다.
-> UR5e와 DH-Robotics AG-95를 쓰고, 오버헤드 컨베이어는 Creo로 자체 설계했습니다(파트 17종, 어셈블리, 2D 도면 9장, BOM, Cycles 포토 렌더 8장).
-> 접은 옷을 트레이에 담는 변형 3안도 같이 모델링했습니다. B안은 로봇 뒤 2 × 5 트레이 선반, C안은 셀 중앙 로봇 + 3면 선반 30칸 + 픽업 벨트(Creo 선반 도면 5장),
-> D안은 서랍식 135칸 + QR 확인 + 빈 트레이 복귀(사이클 65.7 s, 간섭 검사는 대표 15칸)입니다. 모두 모델 시간이고 인증받은 설비가 아닙니다.
-> → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
+> **새 PoC (2026-11):** 졸업작품 2.5 m 셀 PoC(변형 4안, 포토 렌더, 2D 도면)는 [아래 최신 섹션](#최신-졸업작품-poc-25-m-셀-2026-11)에 모았습니다. → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
 
 ---
 
 ## 목차
+
+- [최신: 졸업작품 PoC 2.5 m 셀 (2026-11)](#최신-졸업작품-poc-25-m-셀-2026-11)
 
 1. [왜 만들었나](#1-왜-만들었나)
 2. [한눈에 보기](#2-한눈에-보기)
@@ -43,6 +41,52 @@
 15. [만들면서 고민한 것](#15-만들면서-고민한-것)
 16. [한계와 다음 단계](#16-한계와-다음-단계)
 17. [출처와 라이선스](#17-출처와-라이선스)
+
+---
+
+## 최신: 졸업작품 PoC 2.5 m 셀 (2026-11)
+
+V2.0 매장의 의류 출고 공정만 2.5 m × 2.5 m 알루미늄 프로파일 셀 하나로 줄인 졸업작품 PoC입니다.
+UR5e와 DH-Robotics AG-95 적응형 그리퍼를 쓰고, 같은 셀에서 옷을 보관해 로봇에게 가져다주는 방식만 바꾼 4안을 모델링했습니다.
+상세 수치와 설계는 [poc_2.5m_cell/README.md](poc_2.5m_cell/README.md)에 있습니다.
+
+<p align="center"><img src="poc_2.5m_cell/renders/photo/P01_hero_front_left.jpg" alt="A안 PoC 셀 전경: 앞 왼쪽에서 본 2.5 m 프로파일 셀, UR5e, 오버헤드 컨베이어, 앞면 픽업 선반" width="100%"></p>
+<p align="center"><sub>A안, 앞 왼쪽에서 본 셀 전경 (Blender Cycles 포토 렌더)</sub></p>
+
+**구성안 4가지**
+
+A안이 처음 설계한 원안이고, B·C·D안은 접은 옷을 트레이에 담는 변형입니다. 셀 크기(2.5 × 2.5 m), 로봇, 그리퍼, 앞면 픽업 개구부는 같습니다.
+
+| 안 | 보관 방식 | 용량 | 1사이클 (모델 시간) |
+|---|---|---|---|
+| A 오버헤드 컨베이어 | 옷걸이째 매달아 순환, 0.8 m 선반에 거치 | 캐리어 10개 | 46.9 s (고객 수령까지) |
+| B 트레이 선반 | 접은 옷을 트레이에 담아 로봇 뒤 선반에 보관 | 2열 × 5단 = 10칸 | 38.1 s (고객이 꺼낼 때까지) |
+| C 중앙 로봇 | 셀 중앙 로봇, 3면 트레이 선반, 픽업 벨트 | 3면 × 2열 × 5단 = 30칸 | 약 32.0 s (고객이 꺼낼 때까지) |
+| D 서랍식 선반 | 얇은 트레이를 서랍처럼 꽂는 선반 + QR 확인, 빈 트레이는 되돌려 꽂음 | 3면 × 3열 × 15단 = 135칸 | 65.7 s (빈 트레이 복귀까지) |
+
+사이클 시간은 끝나는 지점이 달라 그대로 비교할 수 없습니다.
+
+<p align="center"><img src="poc_2.5m_cell/renders/photo/P03_high_corner.jpg" alt="A안: 높은 모서리에서 본 오버헤드 컨베이어 셀" width="49%"> <img src="poc_2.5m_cell/renders/tray/T01_overview.jpg" alt="B안: 로봇 뒤 2열 5단 트레이 선반 전경" width="49%"></p>
+<p align="center"><sub>A안 오버헤드 컨베이어 (Cycles 포토) · B안 트레이 선반 (B안은 포토 렌더가 없어 Eevee 작업 렌더)</sub></p>
+<p align="center"><img src="poc_2.5m_cell/renders/center_photo/S01_hero_front_left.jpg" alt="C안: 셀 중앙 로봇과 좌·뒤·우 3면 트레이 선반, 앞면 픽업 벨트" width="49%"> <img src="poc_2.5m_cell/renders/files_photo/F01_hero_front_left.jpg" alt="D안: 셀 중앙 로봇과 3면 135칸 서랍식 선반" width="49%"></p>
+<p align="center"><sub>C안 중앙 로봇과 30칸 선반 (Cycles 포토) · D안 135칸 서랍식 선반 (Cycles 포토)</sub></p>
+
+**2D 도면**
+
+Creo 13.4 교육용 버전에서 3각법 뷰를 만들고 ANSI C 또는 A3 도면으로 냈습니다. 치수는 Creo 뷰 위에 덧그린 주석입니다. 이미지를 누르면 PDF가 열립니다.
+
+<p align="center"><a href="poc_2.5m_cell/drawings/CV_CELL_LAYOUT.pdf"><img src="poc_2.5m_cell/drawings/preview/CV_CELL_LAYOUT.jpg" alt="A안 셀 전체 배치도 CV_CELL_LAYOUT: 평면도, 정면도, 우측면도와 부품표" width="49%"></a> <a href="poc_2.5m_cell/drawings/CV_CONVEYOR.pdf"><img src="poc_2.5m_cell/drawings/preview/CV_CONVEYOR.jpg" alt="오버헤드 컨베이어 조립도 CV_CONVEYOR" width="49%"></a></p>
+<p align="center"><sub>A안 셀 배치도 <code>CV_CELL_LAYOUT</code> (1:20) · 컨베이어 조립도 <code>CV_CONVEYOR</code> (1:10)</sub></p>
+<p align="center"><a href="poc_2.5m_cell/drawings/rack_center/CC_CELL.pdf"><img src="poc_2.5m_cell/drawings/preview/CC_CELL.jpg" alt="C안 셀 배치도 CC_CELL: 중앙 로봇과 3면 트레이 선반" width="49%"></a> <a href="poc_2.5m_cell/drawings/rack_center/RK_RACK.pdf"><img src="poc_2.5m_cell/drawings/preview/RK_RACK.jpg" alt="C안 트레이 선반 조립도 RK_RACK: 정면, 우측면, 평면과 부품표" width="49%"></a></p>
+<p align="center"><sub>C안 셀 배치도 <code>CC_CELL</code> (1:20) · 트레이 선반 조립도 <code>RK_RACK</code> (1:10)</sub></p>
+
+가공품 도면 묶음: [`CV_drawings_all.pdf`](poc_2.5m_cell/drawings/CV_drawings_all.pdf)(컨베이어 조립도와 가공품 9장), [`RK_drawings_all.pdf`](poc_2.5m_cell/drawings/rack_center/RK_drawings_all.pdf)(C안 선반 조립도, 선반 부품, 셀 배치도 5장).
+
+**확인한 것과 모델뿐인 것**
+
+- 확인한 것: A안은 Creo 파트 17종과 어셈블리 223개 컴포넌트를 배치했고(실패 0), 셀 사이클 2프레임 간격 524샘플에서 간섭 0건입니다. C안은 주문 접수부터 고객 수령까지 전체 사이클에서 0건, D안은 대표 15칸에서 0건입니다.
+- 모델뿐인 것: 사이클 시간은 가정 축 속도로 계산한 모델 시간이고, 제작하거나 인증받은 설비가 아닙니다. D안의 나머지 120칸은 경로 계획만 했고, B안은 간섭 검사 결과를 남기지 않았습니다. B·C·D안의 선반, 트레이, 벨트는 Blender 개념 모델이고, Creo 선반 도면은 C안만 있습니다.
+- 진행 중: 옷걸이 순환과 트레이 선반을 합친 하이브리드 변형안은 제작 중이며 아직 수치가 없습니다.
 
 ---
 

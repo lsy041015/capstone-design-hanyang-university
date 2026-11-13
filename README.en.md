@@ -16,11 +16,44 @@ A Hanyang University Capstone Design project.
 > 7 automated checks (0 interlock violations over 6,620 frames, 0 robot interference hits over 1,004 frames, and more). Times are model times computed
 > from assumed axis speeds, and the robot geometry is a UR5 CB-series stand-in for the target FR5e. Please read [Limitations](#limitations) first.
 
-> **New PoC (2026-11):** the garment pickup step alone in a 2.5 m x 2.5 m profile cell with a UR5e, a DH-Robotics AG-95 adaptive gripper and a
-> self-designed overhead conveyor (Creo: 17 parts, assembly, 9 drawings, BOM, 8 Cycles photo renders). Three tray-based variants for folded garments are modelled too:
-> B (2 x 5 tray rack behind the robot), C (robot at the cell centre, three racks with 30 slots, pickup belt, 5 Creo rack drawings) and
-> D (file-drawer racks with 135 slots, QR check, empty tray put back; 65.7 s cycle, interference checked on 15 representative slots only).
-> Model times, not a certified machine. → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
+> **New PoC (2026-11):** the graduation 2.5 m cell PoC (four variants, photo renders, 2D drawings) is in the [latest section below](#latest-graduation-poc-25-m-cell). → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
+
+---
+
+## Latest: graduation PoC, 2.5 m cell
+
+The garment pickup step of the V2.0 store, reduced to one 2.5 m x 2.5 m aluminium-profile cell: a UR5e with a DH-Robotics AG-95 adaptive gripper.
+Four variants share the same cell and differ only in how garments are stored and brought to the robot. Details are in
+[poc_2.5m_cell/README.md](poc_2.5m_cell/README.md) (Korean).
+
+<p align="center"><img src="poc_2.5m_cell/renders/photo/P01_hero_front_left.jpg" alt="Variant A PoC cell from the front left: 2.5 m profile cell, UR5e, overhead conveyor, front pickup shelf" width="100%"></p>
+<p align="center"><sub>Variant A from the front left (Blender Cycles photo render)</sub></p>
+
+| Variant | Storage | Capacity | One cycle (model time) |
+|---|---|---|---|
+| A overhead conveyor | hangers circulate on a loop, set down on a 0.8 m shelf | 10 carriers | 46.9 s (to customer pickup) |
+| B tray rack | folded garments in trays on a rack behind the robot | 2 x 5 = 10 slots | 38.1 s (until the customer takes it) |
+| C centre robot | robot at the cell centre, three tray racks, pickup belt | 3 x 2 x 5 = 30 slots | about 32.0 s (until the customer takes it) |
+| D file-drawer rack | thin trays slotted like file drawers, QR check, empty tray put back | 3 x 3 x 15 = 135 slots | 65.7 s (until the empty tray is back) |
+
+Cycle times end at different points and are not directly comparable.
+
+<p align="center"><img src="poc_2.5m_cell/renders/photo/P03_high_corner.jpg" alt="Variant A: overhead conveyor cell from a high corner" width="49%"> <img src="poc_2.5m_cell/renders/tray/T01_overview.jpg" alt="Variant B: 2 x 5 tray rack behind the robot" width="49%"></p>
+<p align="center"><img src="poc_2.5m_cell/renders/center_photo/S01_hero_front_left.jpg" alt="Variant C: robot at the cell centre with three tray racks and a pickup belt" width="49%"> <img src="poc_2.5m_cell/renders/files_photo/F01_hero_front_left.jpg" alt="Variant D: robot at the cell centre with 135-slot file-drawer racks" width="49%"></p>
+<p align="center"><sub>A (Cycles photo), B (Eevee work render, no photo render exists), C and D (Cycles photos)</sub></p>
+
+**2D drawings** (Creo 13.4 Educational, third-angle views; dimensions are annotations drawn over the Creo views). Click a thumbnail to open the PDF.
+
+<p align="center"><a href="poc_2.5m_cell/drawings/CV_CELL_LAYOUT.pdf"><img src="poc_2.5m_cell/drawings/preview/CV_CELL_LAYOUT.jpg" alt="Variant A cell layout drawing CV_CELL_LAYOUT" width="49%"></a> <a href="poc_2.5m_cell/drawings/CV_CONVEYOR.pdf"><img src="poc_2.5m_cell/drawings/preview/CV_CONVEYOR.jpg" alt="Overhead conveyor assembly drawing CV_CONVEYOR" width="49%"></a></p>
+<p align="center"><a href="poc_2.5m_cell/drawings/rack_center/CC_CELL.pdf"><img src="poc_2.5m_cell/drawings/preview/CC_CELL.jpg" alt="Variant C cell layout drawing CC_CELL" width="49%"></a> <a href="poc_2.5m_cell/drawings/rack_center/RK_RACK.pdf"><img src="poc_2.5m_cell/drawings/preview/RK_RACK.jpg" alt="Variant C tray rack assembly drawing RK_RACK" width="49%"></a></p>
+<p align="center"><sub>A cell layout, conveyor assembly, C cell layout, tray rack assembly</sub></p>
+
+Part-drawing bundles: [`CV_drawings_all.pdf`](poc_2.5m_cell/drawings/CV_drawings_all.pdf) (conveyor assembly + 9 parts), [`RK_drawings_all.pdf`](poc_2.5m_cell/drawings/rack_center/RK_drawings_all.pdf) (C rack assembly, parts and cell layout, 5 sheets).
+
+**Verified vs. model only.** Verified: variant A has 17 Creo parts and an assembly of 223 placed components, with 0 interference hits over 524 samples of the cell cycle;
+C has 0 hits over the full cycle; D has 0 hits on 15 representative slots only. Model only: times come from assumed axis speeds, and none of it is a built or certified machine.
+D's other 120 slots were path-planned but not interference-checked, B has no recorded check, and Creo rack drawings exist for C only.
+A hybrid hanger + tray variant is in progress and has no numbers yet.
 
 ---
 
