@@ -17,7 +17,10 @@ A Hanyang University Capstone Design project.
 > from assumed axis speeds, and the robot geometry is a UR5 CB-series stand-in for the target FR5e. Please read [Limitations](#limitations) first.
 
 > **New PoC (2026-11):** the garment pickup step alone in a 2.5 m x 2.5 m profile cell with a UR5e, a DH-Robotics AG-95 adaptive gripper and a
-> self-designed overhead conveyor (Creo: 17 parts, assembly, 9 drawings, BOM) → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
+> self-designed overhead conveyor (Creo: 17 parts, assembly, 9 drawings, BOM, 8 Cycles photo renders). Three tray-based variants for folded garments are modelled too:
+> B (2 x 5 tray rack behind the robot), C (robot at the cell centre, three racks with 30 slots, pickup belt, 5 Creo rack drawings) and
+> D (file-drawer racks with 135 slots, QR check, empty tray put back; 65.7 s cycle, interference checked on 15 representative slots only).
+> Model times, not a certified machine. → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
 
 ---
 

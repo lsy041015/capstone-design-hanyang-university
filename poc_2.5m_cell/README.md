@@ -1,13 +1,27 @@
-# PoC 2.5 m 셀: 무인 세탁물 수령 (UR5e + 오버헤드 컨베이어)
+# PoC 2.5 m 셀: 무인 세탁물 수령 (UR5e, 오버헤드 컨베이어와 트레이 선반 3안)
 
-> **EN:** A 2.5 m x 2.5 m aluminium-profile proof-of-concept cell for the garment pickup step of V2.0: a UR5e with a DH-Robotics AG-95 adaptive gripper takes a hanger by its tab from a self-designed overhead conveyor (10 carriers, GT2 belt, 3D-printed track and carriers) and lays it on a 0.8 m shelf through an acrylic opening. Creo parts/assembly/drawings, STEP/STL and BOM are here; interference checks found 0 hits in the sampled cycle.
+> **EN:** A 2.5 m x 2.5 m aluminium-profile proof-of-concept cell for the garment pickup step of V2.0: a UR5e with a DH-Robotics AG-95 adaptive gripper. Variant A takes a hanger by its tab from a self-designed overhead conveyor (10 carriers, GT2 belt, 3D-printed track) and lays it on a 0.8 m shelf. Variants B, C and D store folded garments in trays instead: B on a 2 x 5 rack behind the robot, C with the robot at the cell centre and three racks (30 slots) plus a pickup belt, D with thin file-drawer trays (135 slots, QR check, empty tray put back). Creo parts/assembly/drawings (conveyor and C-variant racks), STEP/STL, BOM and Blender photo renders are here. Interference checks: 0 hits in the sampled cycles of A, C and D (D: 15 representative slots only); no result recorded for B.
 
 캡스톤 V2.0 매장의 의류 출고 공정만 2.5 m × 2.5 m 알루미늄 프로파일 셀 하나로 줄인 졸업작품 PoC입니다.
 실사용 설비가 아닙니다. 시간은 가정 축 속도로 계산한 모델 시간이고, 안전 기능은 인증 설계가 아닙니다.
 
 ![overview](renders/01_overview.jpg)
 
-## 1. 구성
+## 구성안 4가지 한눈에 보기
+
+같은 셀(2.5 × 2.5 m, UR5e, AG-95, 앞면 픽업 개구부)에서 옷을 보관해 로봇에게 가져다주는 방식만 바꾼 4안입니다.
+A안이 처음 설계한 원안이고, B·C·D안은 접은 옷을 트레이에 담는 변형입니다.
+
+| 안 | 보관 방식 | 용량 | 로봇 위치 | 수령 방식 | 1사이클 (모델 시간) | 자세한 곳 |
+|---|---|---|---|---|---|---|
+| A 오버헤드 컨베이어 | 옷걸이째 매달아 순환 | 캐리어 10개 | 받침대 (0.45, -0.62) m | 0.8 m 선반에 옷걸이째 거치 | 46.9 s (고객 수령까지) | [1-5장](#1-구성-a안) |
+| B 트레이 선반 | 접은 옷을 트레이에 담아 로봇 뒤 선반에 보관 | 2열 × 5단 = 10칸 | A안과 같음 | 0.8 m 선반에 트레이째 거치 | 38.1 s (고객이 꺼낼 때까지) | [6장](#6-b안-트레이-선반) |
+| C 중앙 로봇 | 셀 중앙 로봇, 좌·뒤·우 3면 트레이 선반 | 3면 × 2열 × 5단 = 30칸 | 셀 중앙 | 픽업 벨트가 앞면 개구부까지 이송 | 약 32.0 s (고객이 꺼낼 때까지) | [7장](#7-c안-중앙-로봇) |
+| D 서랍식 선반 | 얇은 트레이를 서랍처럼 꽂는 선반 + QR 확인 | 3면 × 3열 × 15단 = 135칸 | 셀 중앙 | C안과 같은 벨트, 빈 트레이는 되돌려 꽂음 | 65.7 s (슬롯 R1-09, 빈 트레이 복귀까지) | [8장](#8-d안-서랍식-선반) |
+
+사이클 시간은 끝나는 지점이 서로 달라 그대로 비교할 수 없습니다. 출처는 각 안의 `timeline_events*.json`과 Blender 타임라인 길이입니다.
+
+## 1. 구성 (A안)
 
 | 항목 | 내용 |
 |---|---|
@@ -19,7 +33,7 @@
 | 주문 | 스마트폰 앱 또는 셀 앞면 갤럭시 탭(벽 거치)에서 인증 |
 | 안전 | 개구부 바깥쪽 라이트 커튼(로봇은 이 면을 넘지 않음), E-stop, 신호탑, 정비문 인터록 |
 
-## 2. 시나리오 (1사이클, 46.9 s, Blender 1:1 타임라인)
+## 2. 시나리오 (A안, 1사이클 46.9 s, Blender 1:1 타임라인)
 
 | 시간 (s) | 단계 |
 |---|---|
@@ -37,7 +51,7 @@
 안전 규칙: 로봇이 원점에 있고 라이트 커튼이 정상일 때만 "수령하세요"를 띄웁니다. 커튼이 차단되면 로봇은 선반 구역 동작을 멈춥니다.
 컨베이어는 로봇이 원점에 있을 때만 인덱싱합니다.
 
-## 3. 오버헤드 컨베이어 설계 (모두 자체 제작, Creo)
+## 3. 오버헤드 컨베이어 설계 (A안, 모두 자체 제작, Creo)
 
 ![conveyor](renders/02_conveyor.jpg)
 
@@ -71,7 +85,7 @@
 
 동작 원리와 조립 순서는 [상세설명서 PDF](docs/overhead_conveyor_manual_ko.pdf)에 정리했습니다.
 
-## 4. 검증
+## 4. 검증 (A안)
 
 | 항목 | 결과 |
 |---|---|
@@ -84,28 +98,199 @@
 - 샘플 사이의 순간 접촉, 옷의 유연 변형(강체로 가정), 로봇 자기 충돌, 동역학
 - 벨트 실제 장력과 치 건너뜀, 프린트 부품 강도 시험, 안전 기능 성능 수준(PL)과 ISO 13857 거리
 
-## 5. 파일
+## 5. A안 포토 렌더 (Cycles)
+
+A안 장면을 Cycles(256 샘플, OptiX 노이즈 제거)로 다시 그린 사진풍 렌더 8장입니다. 원본 1920 × 1080을 1600 px로 줄였습니다.
+
+![A안 전경](renders/photo/P01_hero_front_left.jpg)
+
+<sub>P01 앞 왼쪽에서 본 셀 전경</sub>
+
+<p align="center"><img src="renders/photo/P02_customer_view.jpg" width="49%" alt="A안, 고객이 보는 앞면"> <img src="renders/photo/P05_conveyor_inside.jpg" width="49%" alt="A안, 셀 안쪽의 오버헤드 컨베이어"></p>
+<p align="center"><img src="renders/photo/P06_gripper_closeup.jpg" width="49%" alt="A안, AG-95가 옷걸이 탭을 잡는 모습"> <img src="renders/photo/P08_shelf_handover.jpg" width="49%" alt="A안, 선반에 옷걸이를 거치하는 모습"></p>
+
+<sub>P02 고객 쪽 앞면, P05 컨베이어 안쪽, P06 그리퍼 근접, P08 선반 거치. 나머지 P03(높은 모서리), P04(우측 정비면), P07(구동부)은 `renders/photo/`에 있습니다.</sub>
+
+## 6. B안 트레이 선반
+
+오버헤드 컨베이어와 걸린 옷을 없애고, 접은 옷을 담은 트레이를 로봇 뒤 고정 선반(2열 × 5단)에 보관하는 안입니다.
+로봇은 트레이 앞의 탭을 잡아 꺼내고 기존 0.8 m 픽업 선반까지 옮깁니다. 출처는 `build_tray.py`와 `timeline_events_tray.json`입니다.
+
+![B안 개요](renders/tray/T01_overview.jpg)
+
+| 항목 | 내용 |
+|---|---|
+| 선반 | 2열 × 5단 = 10칸. 열 중심 x 0.22 / 0.68 m, 트레이 바닥 높이 0.70–1.42 m (0.18 m 간격). 앞면은 y = 0.08 m로 로봇 축에서 0.70 m |
+| 트레이 | 400 × 380 × 80 mm. 앞면에 주황 탭(6 × 40 × 30 mm), 접은 옷 1벌 |
+| 로봇 | A안과 같은 받침대 (0.45, -0.62) m, UR5e + AG-95 |
+| 주문 | 시나리오는 칸 L-3 (왼쪽 열, 3단) |
+
+1사이클 38.1 s (모델 시간):
+
+| 시간 (s) | 단계 |
+|---|---|
+| 0.0–2.0 | 앱/탭에서 주문 #0427 (트레이 L-3) 인증 |
+| 2.0–10.3 | 로봇 원점 → 손잡이 앞 → 100 mm 직선 진입 → 탭 파지 (닫힘 0.9 s) |
+| 10.3–14.4 | 12 mm 들기 → 선반에서 0.50 m 인출 |
+| 14.4–21.8 | 150 mm 상승 → 2단계 선회 (셀 안쪽 -X 방향, 그다음 선반 위) |
+| 21.8–28.0 | 픽업 선반에 내려놓기 → 그리퍼 열림 → 120 mm 후퇴 |
+| 28.0–35.1 | 원점 복귀 |
+| 35.1–38.1 | 탭에 "수령하세요" → 고객이 개구부에서 접힌 옷을 꺼냄. 빈 트레이는 선반에 남음 |
+
+<p align="center"><img src="renders/tray/T03_pull_out.jpg" width="49%" alt="B안, 트레이를 선반에서 인출"> <img src="renders/tray/T04_carry_to_shelf.jpg" width="49%" alt="B안, 트레이를 픽업 선반으로 이송"></p>
+
+<sub>T03 인출, T04 픽업 선반으로 이송. T02(탭 파지)와 T05(고객 수령)도 `renders/tray/`에 있습니다. T 시리즈는 Eevee 작업 렌더 1600 × 900입니다.</sub>
+
+이 안은 빈 트레이를 되돌리지 않습니다. 간섭 검사 결과는 저장소에 남기지 않았습니다(스크립트에는 `check()`가 있음).
+
+## 7. C안 중앙 로봇
+
+로봇을 셀 중앙으로 옮기고, 좌·뒤·우 3면에 트레이 선반을 둔 안입니다. 로봇은 선반에서 트레이를 반경 방향으로 빼낸 뒤 J1만 돌려 픽업 벨트에 올리고,
+벨트가 트레이를 앞면 개구부까지 보냅니다. 출처는 `build_center.py`, `timeline_events_center.json`, `conveyor/rack_design.py`입니다.
+
+![C안 전경](renders/center_photo/S01_hero_front_left.jpg)
+
+<sub>S01 앞 왼쪽에서 본 C안 (Cycles)</sub>
+
+| 항목 | 내용 |
+|---|---|
+| 로봇 | UR5e 받침대 Ø180 H900, 셀 중앙 (0, 0) |
+| 선반 | 좌(L)·뒤(B)·우(R) 3면 × 2열 × 5단 = 30칸. 앞면(트레이 앞벽)은 로봇 축에서 R820, 열 중심 ±220 mm, 단 높이 0.70–1.42 m (180 mm 간격) |
+| 트레이 | 400 × 320 × 80 mm, PETG. 탭 6 × 40 × 30 mm. 인출 거리 0.36 m |
+| 픽업 벨트 | 450 × 660 mm, 상면 FL+800 (개구부 하단 높이), 끝단 스톱·광센서, 0.15 m/s |
+| 주문 | 시나리오는 칸 R1-3 (오른쪽 선반, 1열, 3단) |
+
+1사이클 약 32.0 s (고객이 꺼낼 때까지, 모델 시간):
+
+| 시간 (s) | 단계 |
+|---|---|
+| 0.0–2.0 | 앱/탭에서 주문 #0427 (트레이 R1-3) 인증 |
+| 2.0–10.3 | 원점 → 손잡이 앞 → 100 mm 직선 진입 → 탭 파지 → 12 mm 들기 |
+| 10.3–13.9 | 반경 방향으로 0.36 m 인출 → 120 mm 상승 |
+| 13.9–15.4 | J1 단독 선회 -63° (벨트 쪽, 트레이는 팔 바깥쪽에 그대로) |
+| 15.4–22.2 | 벨트 투입 위치 위로 → 내려놓기 → 그리퍼 열림 |
+| 22.2–29.0 | 150 mm 수직 후퇴 → 원점 복귀. 벨트가 0.25 m 이송해 끝단 센서에서 정지 (23.2–24.9) |
+| 29.0–32.0 | 탭에 "수령하세요" → 고객이 개구부에서 옷을 꺼냄 |
+
+<p align="center"><img src="renders/center_photo/S02_customer_front.jpg" width="49%" alt="C안, 고객이 보는 앞면과 픽업 벨트"> <img src="renders/center_photo/S04_top_down.jpg" width="49%" alt="C안, 위에서 본 배치"></p>
+<p align="center"><img src="renders/center/C03_pick_tray.jpg" width="49%" alt="C안, 트레이 파지와 인출"> <img src="renders/center/C04_place_conveyor.jpg" width="49%" alt="C안, 픽업 벨트에 트레이를 내려놓는 장면"></p>
+<p align="center"><img src="renders/center_photo/S08_inside_over_robot.jpg" width="49%" alt="C안, 로봇 위에서 본 셀 안쪽"> <img src="renders/center/C05_pickup_zone.jpg" width="49%" alt="C안, 픽업 구역에서 고객 수령"></p>
+
+<sub>S02·S04·S08은 Cycles 포토, C03–C05는 Eevee 작업 렌더입니다. 나머지 S03·S05·S06·S07과 C01·C02는 `renders/center_photo/`, `renders/center/`에 있습니다.</sub>
+
+검증: 로봇 7링크 + 그리퍼 + 든 트레이를 프레임·아크릴·안전기기·받침대·선반·벨트와 BVH로 겹침 검사했습니다. 주문 접수 뒤 고객 수령까지 사이클 전체(2프레임 간격)에서 0건입니다.
+트레이가 자기 선반이나 벨트 위를 미끄러지는 구간은 검사에서 제외했습니다.
+타임라인 문구에는 "빈 트레이는 역송 후 로봇이 선반으로 회수"라고 적었지만, 이 회수 동작은 C안 애니메이션과 검사에 들어 있지 않습니다(D안에서 구현).
+
+## 8. D안 서랍식 선반
+
+C안에서 선반을 파일 서랍처럼 바꿔 칸 수를 늘린 안입니다. 얇은 트레이를 70 mm 간격으로 꽂고, 로봇은 그리퍼 카메라로 QR을 확인한 뒤 서랍처럼 빼냅니다.
+고객이 옷을 가져가면 빈 트레이를 벨트로 되돌려 받아 같은 칸에 다시 꽂습니다. 출처는 `build_files.py`와 `timeline_events_files.json`입니다.
+
+![D안 전경](renders/files_photo/F01_hero_front_left.jpg)
+
+<sub>F01 앞 왼쪽에서 본 D안 (Cycles)</sub>
+
+| 항목 | 내용 |
+|---|---|
+| 선반 | 좌·뒤·우 3면 × 3열 × 15단 = 135칸. 열 중심 ±0.37 m, 앞면 R880, 단 간격 70 mm (트레이 45 + 러너 4 + 들기 12 + 여유 9), 러너 상면 높이 0.57–1.55 m |
+| 트레이 | 340 × 280 × 45 mm 얇은 트레이 (접힌 옷 300 × 240 × 30 기준). 앞 탭 40 mm, 앞면에 QR 라벨 |
+| 인식 | AG-95 옆 툴 플랜지에 QR 카메라. 렌더의 QR은 읽히지 않는 모양 텍스처입니다 |
+| 적재 | 직원은 랙 뒤쪽 아크릴의 인터록 해치로 트레이를 밀어 넣고, 후면 스프링 래치를 지나면 걸립니다 |
+| 픽업 | C안과 같은 벨트 450 × 660 mm, FL+800. 벨트 끝 쪽 로드셀이 빈 트레이를 확인 |
+| 낮은 단 | 단이 낮을수록 공구를 최대 35°까지 아래로 기울여 접근 |
+
+1사이클 65.7 s (슬롯 R1-09 = 오른쪽 선반 1열 9단, 모델 시간, Blender 타임라인 길이). 순서는 다음과 같습니다.
+
+| 순서 | 단계 |
+|---|---|
+| 1 | 주문 접수 → 서버가 슬롯 지정 |
+| 2 | 랙 중앙 앞으로 이동, 슬롯 앞에서 그리퍼 카메라로 QR 확인 (0.8 s) |
+| 3 | 탭 진입 → 파지 → 12 mm 들기 → 서랍처럼 0.34 m 인출 |
+| 4 | 선회 높이로 이동 → J1 단독 선회로 벨트 쪽을 향함 → 벨트에 내려놓기 |
+| 5 | 벨트가 0.27 m 이송해 픽업존에 정지 → 탭에 "수령하세요" → 고객이 옷을 꺼냄 |
+| 6 | 로드셀로 빈 트레이 확인 → 벨트 역송 → 로봇이 빈 트레이를 다시 파지 |
+| 7 | J1 역선회 → 서랍처럼 후면 래치까지 밀어 넣기 → 열림 → 후퇴 |
+| 8 | QR 재확인으로 빈 트레이 복귀를 기록 → 원점 복귀 |
+
+`timeline_events_files.json`에는 다른 슬롯 B3-15를 계획한 기록(끝 87.7 s)이 들어 있어, 칸에 따라 시간이 달라집니다.
+
+<p align="center"><img src="renders/files_photo/F06_qr_scan_closeup.jpg" width="49%" alt="D안, 그리퍼 카메라가 QR 라벨을 확인하는 근접"> <img src="renders/files_photo/F09_rack_detail.jpg" width="49%" alt="D안, 135칸 선반 정면"></p>
+<p align="center"><img src="renders/files_photo/F07_staff_loading_back.jpg" width="49%" alt="D안, 직원이 뒤에서 적재하는 해치"> <img src="renders/files_photo/F08_inside_over_robot.jpg" width="49%" alt="D안, 로봇 위에서 본 셀 안쪽"></p>
+<p align="center"><img src="renders/files_photo/F02_customer_front.jpg" width="49%" alt="D안, 고객이 보는 앞면"> <img src="renders/files_photo/F04_top_down.jpg" width="49%" alt="D안, 위에서 본 배치"></p>
+
+<sub>F06 QR 확인, F09 선반 상세, F07 뒤쪽 적재 해치, F08 로봇 위에서, F02 고객 쪽, F04 평면. 나머지 F03·F05는 `renders/files_photo/`에 있습니다.</sub>
+
+검증:
+
+| 항목 | 결과 |
+|---|---|
+| 135칸 경로 계획 | 모든 칸에서 IK와 받침대 여유(팔이 받침대로 접히지 않음) 계획 통과 |
+| 전체 사이클 BVH 겹침 검사 | **대표 15칸만** 실행, 0건. 나머지 120칸은 경로 계획만 했고 BVH 검사는 하지 않았습니다 |
+
+## 9. A안과 중앙 로봇안(C·D) 비교
+
+어느 쪽이 낫다고 결론 내리지 않고, 모델에서 확인한 차이만 적습니다.
+
+| 항목 | A 오버헤드 컨베이어 | C·D 중앙 로봇 + 트레이 선반 |
+|---|---|---|
+| 옷 상태 | 옷걸이에 건 채로 보관, 접지 않음 | 접어서(압축 포장) 트레이에 담음. 접기·포장 공정은 이 PoC에 없음 |
+| 움직이는 기구 | 오버헤드 루프 (벨트 4.5 m, 캐리어 10개, 구동부) | 오버헤드 기구 없음. 움직이는 것은 로봇과 픽업 벨트뿐 |
+| 보관 밀도 | 캐리어 10개 | C 30칸, D 135칸 (접힌 옷이라 촘촘함) |
+| 옷을 가져오는 쪽 | 컨베이어가 각 옷걸이를 로봇 앞 픽업 위치로 가져옴 | 로봇이 선반의 칸까지 가서 꺼냄. 칸마다 경로 계획이 필요 (D는 135칸 전수 계획) |
+| 빈 용기 | 옷걸이째 수령, 회수 동작 없음 | D는 벨트로 되돌려 같은 칸에 다시 꽂음. B·C는 모델에 없음 |
+
+## 10. 중앙 로봇 선반 Creo 도면 (C안)
+
+C안 선반 1대(2열 × 5단)와 셀 전체 배치를 Creo 13.4 교육용 버전에서 모델링하고 ANSI C(22 × 17 in) 도면으로 만들었습니다.
+뷰는 Creo에서 3각법으로 생성했고, 치수는 그 뷰 위에 덧그린 주석입니다(A안 도면과 같은 방식).
+
+| 도면 | 내용 | 척도 |
+|---|---|---|
+| `RK_RACK.pdf` | 선반 1대 조립도: 3030 기둥 6, 선반판 5 + 상판 1, 트레이 10, L브래킷 48, 레벨링 풋 6. Creo 조립품 부품 22개 | 1:10 |
+| `RK_SHELF.pdf` | 선반판·상판 겸용. SPCC 1.6 t 판금 900 × 370 mm, 앞·뒤 플랜지 20 mm, 기둥 자리 따냄, 8-Ø6.6 구멍 | 1:5 |
+| `RK_TRAY.pdf` | 의류 트레이. PETG 400 × 320 × 80 mm, 벽 6 mm, 그립 탭 6 × 40 × 30 mm (FDM 출력) | 1:2 |
+| `RK_POST_3030_L1550.pdf` | 3030 알루미늄 프로파일 기둥 L1550, 양단 M6 탭 | 1:10 |
+| `CC_CELL.pdf` | C안 셀 배치도: 평면·정면·우측면, 장비 12종 일람표 (부품 66 + 선반 서브조립 3) | 1:20 |
+| `RK_drawings_all.pdf` | 위 5장 묶음 | - |
+
+도면은 [`drawings/rack_center/`](drawings/rack_center/)에 있습니다. 선반 높이는 상면 기준 FL+700 / 880 / 1060 / 1240 / 1420 mm이고, 상판은 FL+1550 mm 기둥 위에 얹습니다.
+STEP은 `cad/step/`의 `rk_post_3030_l1550.stp`, `rk_shelf.stp`, `rk_tray.stp`(선반 부품 3종)와 `pc_*.stp`(픽업 벨트 부품 8종: 벨트, 측면 프레임, 가이드, 다리, 롤러, 끝단 스톱, 모터, 센서)입니다.
+`pc_*` 부품 대부분은 단순 박스 형상입니다.
+
+## 11. 파일
 
 | 경로 | 내용 |
 |---|---|
-| `renders/` | 정지 렌더 8장 (셀 전경, 컨베이어, 구동부, 파지, 인출·선회, 선반 거치, 고객 수령, DH 그리퍼 근접) |
+| `renders/` | A안 정지 렌더 8장 (셀 전경, 컨베이어, 구동부, 파지, 인출·선회, 선반 거치, 고객 수령, DH 그리퍼 근접) |
+| `renders/photo/` | A안 Cycles 포토 렌더 8장 (P01–P08) |
+| `renders/tray/` | B안 렌더 5장 (T01–T05, Eevee) |
+| `renders/center/`, `renders/center_photo/` | C안 렌더 5장 (C01–C05, Eevee), Cycles 포토 8장 (S01–S08) |
+| `renders/files_photo/` | D안 Cycles 포토 렌더 9장 (F01–F09) |
 | `docs/overhead_conveyor_manual_ko.pdf` | **상세설명서 24쪽**: 동작 원리 도식(평면 배치·트랙 단면·핀치 구동·인덱싱 순서), 분해도, BOM, 설계 계산, 조립 순서, 검증, A3 도면 10장 |
 | `exploded/` | 분해도 4장 (E1 캐리어, E2 곡선 트랙 모듈, E3 구동부, E4 인덱스 센서), BOM 번호 풍선 |
 | `drawings/CV_CELL_LAYOUT.pdf` | **셀 전체 배치도** (Creo `cv_cell.asm`, ANSI C, 1:20, 3각법: 평면·정면·우측면, 장비 13종 일람표) |
+| `drawings/rack_center/` | **C안 선반 도면 6개**: `RK_RACK`(1:10), `RK_SHELF`(1:5), `RK_TRAY`(1:2), `RK_POST_3030_L1550`(1:10), 셀 배치도 `CC_CELL`(1:20), 묶음 `RK_drawings_all.pdf` (ANSI C, 3각법) |
 | `drawings/` | 컨베이어 조립도 `CV_CONVEYOR.pdf` (1:10) + 가공품 2D 도면 9장 (A3, 치수·표제란) + 묶음 `CV_drawings_all.pdf` |
 | `cad/creo_native/` | Creo 13.4 원본: 컨베이어 파트 17 + 셀 파트 23 + 로봇·그리퍼 STL 가져오기 16 (`imp_*`), 어셈블리 `cv_conveyor.asm`·`cv_cell.asm`·`cv_cell_view.asm`, 도면 |
 | `cad/step/cv_cell.stp` | 셀 전체 STEP (프레임·아크릴·컨베이어·로봇 포함) |
 | `cad/third_party/` | UR5e 메시 라이선스(BSD-3), DH AG-95 URDF 출처(package.xml BSD) |
-| `cad/step/` | 파트별 STEP + 어셈블리 `cv_conveyor.stp` |
+| `cad/step/` | 파트별 STEP + 어셈블리 `cv_conveyor.stp`, C안 선반 부품 `rk_*.stp` 3종과 픽업 벨트 부품 `pc_*.stp` 8종 |
 | `cad/stl/` | 출력용 STL (`cv_*` 9종 PETG), 구매품 단순 형상 STL |
 | `BOM.csv` | 자체 제작 9종 + 구매품 8종 + 체결·전장 부품 (UTF-8 BOM, 엑셀에서 바로 열림) |
 
 Creo 파일은 교육용 버전(Creo 13.4 Educational)에서 만들었으므로 상용 Creo에서는 열리지 않을 수 있습니다. 이때는 STEP을 쓰면 됩니다.
-Blender 장면(.blend)과 생성·검증 스크립트는 이 저장소에 올리지 않았습니다.
+Blender 장면(.blend), 생성·검증 스크립트, 타임라인 JSON은 이 저장소에 올리지 않았습니다. 여기에는 B·C·D안의 .blend와 빌드 스크립트도 포함됩니다.
+C안 선반의 Creo 원본(.prt, .asm)도 올리지 않았고, 도면 PDF와 STEP만 있습니다.
 
-## 6. 한계와 다음 단계
+## 12. 한계와 다음 단계
 
 - 탭 장착 옷걸이, 라이트 커튼, 컨트롤러 배선은 개념 수준입니다.
+- B·C·D안의 선반, 트레이, 벨트, 로드셀, QR 카메라는 Blender에서 단순 형상으로 만든 개념 모델입니다. 트레이 하중, 처짐, 구동 용량 계산은 하지 않았습니다.
+- 접힌 옷은 트레이 안의 박스입니다. 옷의 접기·포장 공정과 주름은 다루지 않았고, 옷의 유연 변형은 강체로 가정합니다.
+- D안 BVH 겹침 검사는 대표 15칸뿐이고 나머지 120칸은 경로 계획만 했습니다. B안은 검사 결과를 남기지 않았고, C안은 빈 트레이 회수를 검사하지 않았습니다.
+- 사이클 시간은 가정 축 속도로 계산한 모델 시간입니다. 안별로 끝나는 지점이 달라 A·B·C·D를 그대로 비교하지 마세요.
+- 선반 Creo 도면은 C안만 있습니다. B·D안 선반은 Blender 모델입니다. 도면 치수는 A안 도면과 같이 Creo 뷰 위에 덧그린 주석입니다.
 - AG-95 권장 하중 3 kg이라 1.5 kg 재킷에도 여유가 있습니다.
 - 그리퍼 형상은 DH 공식 URDF 메시(본체 93 × 67 × 138 mm)입니다. 다만 URDF의 링크 연동은 mimic 근사라서 실제 4절 링크와 조금 다릅니다.
   UR 플랜지 어댑터는 모델에 넣지 않았습니다(본체 바닥을 플랜지에 바로 붙임).
@@ -116,3 +301,4 @@ Blender 장면(.blend)과 생성·검증 스크립트는 이 저장소에 올리
   - 빗살 조 출력 정밀도(0.12 레이어)
   - 핀치 구동 미끄럼
   - 곡선부 625ZZ가 벨트 치에 닿을 때의 소음
+- 옷걸이 순환과 트레이 선반을 합친 하이브리드(옷걸이 + 트레이) 변형안은 제작 중이며 아직 이 문서에 넣지 않았습니다.
