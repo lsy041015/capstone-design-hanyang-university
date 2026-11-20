@@ -6,172 +6,72 @@
 
 # Automated Unmanned Laundry Pickup System (무인 세탁물 수령 시스템)
 
-A Hanyang University Capstone Design project.
+A Hanyang University Capstone Design project. It's a Blender design for a 24-hour unmanned laundry pickup store, where an automated cell holds finished garments and shoes and hands them to customers who authenticate.
 
-> **A 24-hour unmanned pickup store concept: an automated cell stores finished garments and shoes and hands them to customers who authenticate.**
-> V2.0 models the whole store (customer lobby, self-service laundry, automated cell, staff area) and the actions of staff, customers and a
-> wheelchair user on one 1:1 Blender timeline. The robot only grips the 10 mm tab of a carrier, never fabric or shoes, and people stay outside the moving machinery.
+The starting point was simple: let customers collect their laundry without a clerk handing it over. That means the right item has to reach the right person, nobody's hands should ever get near moving machinery, whether staff are loading or customers are picking up, and one cell has to handle both hanging garments and pairs of shoes.
 
-> **Status: V2.0 — a visual, geometric and motion design concept. It is not a built or certified machine.** The saved model was reopened and passed
-> 7 automated checks (0 interlock violations over 6,620 frames, 0 robot interference hits over 1,004 frames, and more). Times are model times computed
-> from assumed axis speeds, and the robot geometry is a UR5 CB-series stand-in for the target FR5e. Please read [Limitations](#limitations) first.
+Up front: this is a **visual, geometric and motion design concept**. It isn't a built or certified machine, and every time below is model time computed from assumed axis speeds. The robot is also a UR5 CB-series mesh standing in for the target robot, an FR5e.
 
-> **New PoC (2026-11):** the graduation 2.5 m cell PoC (four variants, photo renders, 2D drawings) is in the [latest section below](#latest-graduation-poc-25-m-cell). → [poc_2.5m_cell/](poc_2.5m_cell/README.md)
+## Latest: graduation PoC, 2.5 m cell (2026-11)
 
----
-
-## Latest: graduation PoC, 2.5 m cell
-
-The garment pickup step of the V2.0 store, reduced to one 2.5 m x 2.5 m aluminium-profile cell: a UR5e with a DH-Robotics AG-95 adaptive gripper.
-Four variants share the same cell and differ only in how garments are stored and brought to the robot. Details are in
-[poc_2.5m_cell/README.md](poc_2.5m_cell/README.md) (Korean).
+This takes just the garment pickup step from the V2.0 store and shrinks it into one 2.5 m x 2.5 m aluminium-profile cell. It uses a UR5e with a DH-Robotics AG-95 gripper, and we tried four variants that only differ in how garments are stored and brought to the robot.
 
 <p align="center"><img src="poc_2.5m_cell/renders/photo/P01_hero_front_left.jpg" alt="Variant A PoC cell from the front left: 2.5 m profile cell, UR5e, overhead conveyor, front pickup shelf" width="100%"></p>
-<p align="center"><sub>Variant A from the front left (Blender Cycles photo render)</sub></p>
+<p align="center"><sub>Variant A from the front left (Blender Cycles render)</sub></p>
 
-| Variant | Storage | Capacity | One cycle (model time) |
-|---|---|---|---|
-| A overhead conveyor | hangers circulate on a loop, set down on a 0.8 m shelf | 10 carriers | 46.9 s (to customer pickup) |
-| B tray rack | folded garments in trays on a rack behind the robot | 2 x 5 = 10 slots | 38.1 s (until the customer takes it) |
-| C centre robot | robot at the cell centre, three tray racks, pickup belt | 3 x 2 x 5 = 30 slots | about 32.0 s (until the customer takes it) |
-| D file-drawer rack | thin trays slotted like file drawers, QR check, empty tray put back | 3 x 3 x 15 = 135 slots | 65.7 s (until the empty tray is back) |
+- **A** overhead conveyor: hangers circulate on a loop. 10 carriers, 46.9 s to customer pickup.
+- **B** tray rack: folded garments in trays on a rack behind the robot (10 slots). 38.1 s.
+- **C** centre robot: three tray racks with 30 slots and a pickup belt. About 32.0 s.
+- **D** file-drawer rack: 135 thin tray slots plus a QR check. 65.7 s until the empty tray is back.
 
-Cycle times end at different points and are not directly comparable.
+The times end at different points, so don't compare them directly. Variant A was assembled in Creo from 17 parts and 223 components, with 0 interference hits over 524 samples of the cell cycle. C has 0 hits over the full cycle; D was checked on 15 representative slots only, and the other 120 were path-planned. A and C also have Creo 2D drawings (for example the [cell layout PDF](poc_2.5m_cell/drawings/CV_CELL_LAYOUT.pdf)). The racks and trays in B, C and D are still Blender concept models, and a hybrid hanger + tray variant is in progress. All the numbers and drawings are in [poc_2.5m_cell/README.md](poc_2.5m_cell/README.md) (Korean).
 
-<p align="center"><img src="poc_2.5m_cell/renders/photo/P03_high_corner.jpg" alt="Variant A: overhead conveyor cell from a high corner" width="49%"> <img src="poc_2.5m_cell/renders/tray/T01_overview.jpg" alt="Variant B: 2 x 5 tray rack behind the robot" width="49%"></p>
-<p align="center"><img src="poc_2.5m_cell/renders/center_photo/S01_hero_front_left.jpg" alt="Variant C: robot at the cell centre with three tray racks and a pickup belt" width="49%"> <img src="poc_2.5m_cell/renders/files_photo/F01_hero_front_left.jpg" alt="Variant D: robot at the cell centre with 135-slot file-drawer racks" width="49%"></p>
-<p align="center"><sub>A (Cycles photo), B (Eevee work render, no photo render exists), C and D (Cycles photos)</sub></p>
+## V2.0: the whole store
 
-**2D drawings** (Creo 13.4 Educational, third-angle views; dimensions are annotations drawn over the Creo views). Click a thumbnail to open the PDF.
+V2.0 doesn't stop at the cell; it designs an entire store. The 10.5 x 7.5 m interior is split into a customer lobby, a self-service laundry, the automated cell and a staff area, and staff, customers and a wheelchair user all move on one 1:1 timeline (6,620 frames, 220.6 s). People and machines only meet at two double-door pickup compartments and two loading points guarded by light curtains. Washing, drying, hanging clothes and inspection/packing are deliberately left as human work; the machine only stores and hands out.
 
-<p align="center"><a href="poc_2.5m_cell/drawings/CV_CELL_LAYOUT.pdf"><img src="poc_2.5m_cell/drawings/preview/CV_CELL_LAYOUT.jpg" alt="Variant A cell layout drawing CV_CELL_LAYOUT" width="49%"></a> <a href="poc_2.5m_cell/drawings/CV_CONVEYOR.pdf"><img src="poc_2.5m_cell/drawings/preview/CV_CONVEYOR.jpg" alt="Overhead conveyor assembly drawing CV_CONVEYOR" width="49%"></a></p>
-<p align="center"><a href="poc_2.5m_cell/drawings/rack_center/CC_CELL.pdf"><img src="poc_2.5m_cell/drawings/preview/CC_CELL.jpg" alt="Variant C cell layout drawing CC_CELL" width="49%"></a> <a href="poc_2.5m_cell/drawings/rack_center/RK_RACK.pdf"><img src="poc_2.5m_cell/drawings/preview/RK_RACK.jpg" alt="Variant C tray rack assembly drawing RK_RACK" width="49%"></a></p>
-<p align="center"><sub>A cell layout, conveyor assembly, C cell layout, tray rack assembly</sub></p>
+Here's the flow.
 
-Part-drawing bundles: [`CV_drawings_all.pdf`](poc_2.5m_cell/drawings/CV_drawings_all.pdf) (conveyor assembly + 9 parts), [`RK_drawings_all.pdf`](poc_2.5m_cell/drawings/rack_center/RK_drawings_all.pdf) (C rack assembly, parts and cell layout, 5 sheets).
+1. Staff scan an inspected, packed garment by RFID at the loading window and hang it on an empty carrier. For shoes, the vertical lift module (VLM) presents an empty tray and staff place a saddle bag on it. While a light curtain sees a hand, the machine stops.
+2. A customer authenticates at the kiosk with a QR code or pickup number, and garment and shoe preparation start at the same time.
+3. The robot never grips fabric or shoes, only a 10 mm tab on the carrier. A garment is lifted 28 mm off its pin, pulled out 0.5 m and moved to compartment A. Shoes ride conveyors to compartment B.
+4. The customer door only unlocks once the inner shutter is closed and locked. Order to garment ready is 27.5 s; shoes take 40.1 s.
+5. The customer takes just the garment on its hanger and the saddle bag; empty adapters and trays go back on their own.
 
-**Verified vs. model only.** Verified: variant A has 17 Creo parts and an assembly of 223 placed components, with 0 interference hits over 524 samples of the cell cycle;
-C has 0 hits over the full cycle; D has 0 hits on 15 representative slots only. Model only: times come from assumed axis speeds, and none of it is a built or certified machine.
-D's other 120 slots were path-planned but not interference-checked, B has no recorded check, and Creo rack drawings exist for C only.
-A hybrid hanger + tray variant is in progress and has no numbers yet.
+Inside the cell there are six modules. Garments circulate on the C01 horizontal chain loop with 26 carriers, and shoes are stacked in the C03 VLM with 12 trays. C02 and C06 are pickup compartments A (garments) and B (shoes), C04 is the control cabinet, and C05 is the robot and gripper. Each module has its own frame so it can be swapped as a unit.
 
----
+A wheelchair user can pick "low position", which lowers the hanger 23 cm to 1.20 m (28.4 s from the order). The kiosk has knee space, controls sit at 0.4-1.2 m, and a 1.5 m turning circle is kept clear in front of the compartments. For service, the SERVICE key homes the robot, and the guard only unlocks after every axis has stopped; a personal padlock (LOTO) goes on the main breaker before anyone steps in. There's no automatic restart.
 
-## Why
-
-Letting customers collect finished laundry without a clerk means solving three things together:
-
-- **The right item to the right person.** Only the authenticated order may come out, and two requests must never take the same stock.
-- **People stay outside the machine.** Neither staff loading items nor customers taking them may reach a moving mechanism.
-- **Two very different items.** Hanging garments and pairs of shoes must be stored and delivered separately in one cell.
-
-V2.0 designs a complete store instead of a lone cell. Customers stay in the lobby, staff in the back, and the machinery inside a guarded cell.
-They meet only at two double-door pickup compartments and two light-curtain loading points. Washing, drying, hanging clothes on hangers,
-inspection and packing remain human work. The repository holds no market or cost analysis.
-
-## What it does
-
-Demo scale (not commercial capacity or profitability): a 10.5 × 7.5 m store (about 79 m², 2.8 m ceiling), 26 garment carriers (C01 loop),
-12 shoe trays (C03 vertical lift module, VLM), one staff garment window, one VLM staff bay, pickup compartments A (garments) and B (shoes),
-and a 6,620-frame 1:1 master timeline (220.6 s at 30 fps) with 25 detailed process steps.
-
-| Function | What happens |
-|---|---|
-| **Staff loading** | Garments: RFID scan → empty carrier indexes to the window → hang → done button. Shoes: the VLM presents an empty tray at the staff bay → place the saddle bag → done. Axes stop while a light curtain sees a hand. |
-| **Storage** | Garments on the C01 horizontal chain loop (26 carriers, 203.2 mm pitch); shoes in the C03 VLM (2 columns × 7 levels, 12 storage slots). |
-| **Authentication** | QR or pickup number at the kiosk → order check → items reserved → preparation starts. Screens are mockups. |
-| **Garment delivery** | C01 index, pin and RFID recheck → C05 tab grip → 28 mm lift-off → 0.5 m radial extraction → 90° turn → A receiver pin and latch → inner shutter closes → Y travel 450 mm. |
-| **Shoe delivery** | In parallel: VLM lift and hook extractor → port conveyor → robot → B roller conveyor → inner shutter closes. |
-| **Pickup** | Double-door interlock: the customer door unlocks only after the inner shutter is closed and locked. Hanger at 1.43 m, shoe tray at 0.85 m. |
-| **Carrier return** | Customers take the hanger with the garment or the saddle bag only. Empty adapters return to their carrier, empty trays to a free VLM slot. |
-| **Accessibility** | Low position mode lowers the hanger 23 cm to 1.20 m. 1.5 m turning circle, controls at 0.4–1.2 m. |
-| **Service** | SERVICE key → robot home, all axes stopped → guard unlock → service door → LOTO → close and lock → AUTO key → reset. No automatic restart. |
-
-## How it works
-
-```text
- 1. Staff loading (axes stop while a light curtain is interrupted)
-    garment: RFID scan → empty carrier indexes, pin → hang at window → done, ID recheck → C01
-    shoes:   empty tray → VLM staff bay → saddle bag → done → free C03 slot
-
- 2. Authentication (kiosk QR or pickup number)
-    order check → reserve items → start garment and shoe preparation together
-
- 3. Garment delivery (order → A ready 27.5 s)
-    C01 index, pin, RFID → C05 tab grip → 28 mm lift-off → 0.5 m extraction
-    → 90° turn → C02 pin, latch → inner shutter closed → Y 450 mm → A door unlocks
-
- 4. Shoe delivery (order → B ready 40.1 s, in parallel)
-    C03 lift, hook → port conveyor → C05 → C06 rollers → inner shutter closed → B door unlocks
-
- 5. Pickup and return
-    take hanger or saddle bag → door closed, removal confirmed → order complete
-    empty adapter → its C01 carrier, empty tray → free C03 slot
-```
-
-## Process images
-
-42 renders taken from the V2.0 1:1 timeline, one or more per detailed step, sorted into six process folders under `images/v2.0/`.
-Every image with its (Korean) caption is listed in [docs/v2.0_process_images.md](docs/v2.0_process_images.md).
-People are stylized mannequins for reach and flow studies; image 4-2 is a section view with one liner of compartment A hidden.
-
-The process map sorts the 25 detailed steps into five process groups and tags each step with its actors (staff, customer, robot, automated equipment), modules (C01–C06) and master-timeline time. It is generated from the model timeline; labels are in Korean.
+On safety, we used ISO 10218, ISO 13857, ISO 14119, ISO 14120, ISO 13856-2 and IEC 60204-1 as references for the design intent. No risk assessment or conformity check was done.
 
 <p align="center"><img src="images/v2.0/process_map.png" alt="V2.0 process map: five process groups and 25 detailed steps tagged with actors and modules" width="100%"></p>
+<p align="center"><sub>Process map: 5 process groups, 25 detailed steps, and who (staff, customer, robot, automated equipment) does each step in which module. Labels are in Korean.</sub></p>
 
-<!-- v2.0-images:start -->
-### 0 · Store layout and flows
+The 42 per-step renders are in [docs/v2.0_process_images.md](docs/v2.0_process_images.md), and 8 exploded views of the modules are in [docs/v2.0_exploded_views.md](docs/v2.0_exploded_views.md) (both Korean).
 
-<p align="center"><img src="images/v2.0/0_store.jpg" alt="Store layout and flows process images" width="100%"></p>
+### 2-minute teaser
 
-Images: [0-1](images/v2.0/0_store/0-1_street_facade.jpg) · [0-2](images/v2.0/0_store/0-2_cutaway_iso.jpg) · [0-3](images/v2.0/0_store/0-3_plan.jpg) · [0-4](images/v2.0/0_store/0-4_lobby.jpg) · [0-5](images/v2.0/0_store/0-5_self_laundry.jpg) · [0-6](images/v2.0/0_store/0-6_staff_area.jpg) · [0-7](images/v2.0/0_store/0-7_flow_summary.jpg)
-
-### 1 · Staff loading (garments, shoes)
-
-<p align="center"><img src="images/v2.0/1_staff_loading.jpg" alt="Staff loading (garments, shoes) process images" width="100%"></p>
-
-Images: [1-1](images/v2.0/1_staff_loading/1-1_inspect_garment.jpg) · [1-2](images/v2.0/1_staff_loading/1-2_call_empty_carrier.jpg) · [1-3](images/v2.0/1_staff_loading/1-3_hang_at_window.jpg) · [1-4](images/v2.0/1_staff_loading/1-4_confirm_stock.jpg) · [1-5a](images/v2.0/1_staff_loading/1-5a_tray_to_staff_bay.jpg) · [1-5b](images/v2.0/1_staff_loading/1-5b_place_saddle_bag.jpg) · [1-6](images/v2.0/1_staff_loading/1-6_vlm_auto_store.jpg)
-
-### 2 · Authentication, delivery and pickup
-
-<p align="center"><img src="images/v2.0/2_order_pickup.jpg" alt="Authentication, delivery and pickup process images" width="100%"></p>
-
-Images: [2-1](images/v2.0/2_order_pickup/2-1_customer_arrives.jpg) · [2-2](images/v2.0/2_order_pickup/2-2_kiosk_qr.jpg) · [2-3](images/v2.0/2_order_pickup/2-3_loop_indexing.jpg) · [2-4a](images/v2.0/2_order_pickup/2-4a_robot_tab_grip.jpg) · [2-4b](images/v2.0/2_order_pickup/2-4b_liftoff_extract.jpg) · [2-5a](images/v2.0/2_order_pickup/2-5a_rotate_to_a.jpg) · [2-5b](images/v2.0/2_order_pickup/2-5b_place_on_receiver.jpg) · [2-5c](images/v2.0/2_order_pickup/2-5c_y_transfer.jpg) · [2-6a](images/v2.0/2_order_pickup/2-6a_vlm_fetch.jpg) · [2-6b](images/v2.0/2_order_pickup/2-6b_port_to_b.jpg) · [2-7](images/v2.0/2_order_pickup/2-7_open_a_door.jpg) · [2-8](images/v2.0/2_order_pickup/2-8_take_garment.jpg) · [2-9](images/v2.0/2_order_pickup/2-9_take_shoes.jpg) · [2-10](images/v2.0/2_order_pickup/2-10_order_complete.jpg)
-
-### 3 · Empty carrier return
-
-<p align="center"><img src="images/v2.0/3_carrier_return.jpg" alt="Empty carrier return process images" width="100%"></p>
-
-Images: [3-1a](images/v2.0/3_carrier_return/3-1a_adapter_from_a.jpg) · [3-1b](images/v2.0/3_carrier_return/3-1b_rehang_on_h01.jpg) · [3-2a](images/v2.0/3_carrier_return/3-2a_tray_back_to_port.jpg) · [3-2b](images/v2.0/3_carrier_return/3-2b_tray_to_s0.jpg)
-
-### 4 · Accessible pickup (wheelchair)
-
-<p align="center"><img src="images/v2.0/4_accessible_pickup.jpg" alt="Accessible pickup (wheelchair) process images" width="100%"></p>
-
-Images: [4-1a](images/v2.0/4_accessible_pickup/4-1a_kiosk_knee_space.jpg) · [4-1b](images/v2.0/4_accessible_pickup/4-1b_low_position_select.jpg) · [4-2](images/v2.0/4_accessible_pickup/4-2_hanger_lowering.jpg) · [4-3](images/v2.0/4_accessible_pickup/4-3_side_reach.jpg) · [4-4](images/v2.0/4_accessible_pickup/4-4_return_home.jpg)
-
-### 5 · Service mode
-
-<p align="center"><img src="images/v2.0/5_service.jpg" alt="Service mode process images" width="100%"></p>
-
-Images: [5-1](images/v2.0/5_service/5-1_service_key.jpg) · [5-2a](images/v2.0/5_service/5-2a_service_door_open.jpg) · [5-2b](images/v2.0/5_service/5-2b_door_from_inside.jpg) · [5-2c](images/v2.0/5_service/5-2c_cabinet_inside.jpg) · [5-3](images/v2.0/5_service/5-3_close_and_reset.jpg)
-
-<!-- v2.0-images:end -->
-
-## Motion-study teaser (V2.0)
+We cut 15 shots from the timeline into a 2-minute video with Korean synthetic narration. Only the waiting segments are sped up a little, and those shots carry an on-screen speed tag.
 
 [![V2.0 motion-study teaser poster — opens the video file](images/v2.0_teaser_poster.jpg)](videos/process_v2.0_teaser_120s_1080p30.mp4)
 
-**[Watch the V2.0 teaser](videos/process_v2.0_teaser_120s_1080p30.mp4)** · 2:00 · 1920×1080 · 30 fps · Korean narration and graphics ·
-[Korean subtitles](videos/process_v2.0_ko.srt) · [shot list (Korean)](docs/v2.0_teaser.md)
+**[Watch the V2.0 teaser](videos/process_v2.0_teaser_120s_1080p30.mp4)** · 2:00 · 1080p · [Korean subtitles](videos/process_v2.0_ko.srt) · [shot list (Korean)](docs/v2.0_teaser.md)
 
-- 15 shots cut from the 1:1 master timeline. Only waiting segments are compressed (×1.2–2), and those shots carry an on-screen speed tag.
-- Sound: Windows Microsoft Heami Desktop Korean synthetic voice and an ambient bed synthesized with NumPy that ducks under the narration.
-- Spec: 120.0 s, 3,600 frames, H.264 (yuv420p) 1920×1080 at 30 fps, AAC 48 kHz stereo, 15 chapters, 36.9 MB, loudness normalized to −16 LUFS.
+GitHub doesn't play MP4s inside a README, so the poster takes you to the file page, where you can download it.
+
+## What took the most work
+
+All checks reopen the saved model and actually evaluate frames, and it passes all 7 automated checks: 0 interlock violations over all 6,620 frames and 0 robot interference hits over 1,004 frames. A hanger, tray or saddle bag is always attached to exactly one owner (carrier, robot, compartment or a hand), and across 31 handoffs the position never jumps more than 0.78 mm. The mannequins were checked too, for foot slip while walking (0.00 mm) and for hands landing exactly on what they grab. That said, this only covers geometry and logic states inside Blender; real loads, sensor response and safety-circuit performance weren't tested.
+
+The part we chewed on longest was how to pull a garment out. Garments hang perpendicular to the rail, so at the wheel they fan out. Gripping the tab at the tip, lifting a little, and pulling out radially clears the outer ends of the neighbours. Giving garment adapters and shoe trays the same 10 mm stainless tab was also so one gripper could handle both.
+
+It wasn't clean from the start. An early path swept the robot arm right through a corner post of compartment A. Interference only reached 0 after preferring elbow-up IK solutions and increasing the retreat in front of the shutter from 0.16 m to 0.40 m. In the video, a staff member once walked through the camera position and about 0.5 s of mannequin interior flashed black on screen, so we wrote a separate check that measures camera-to-person distance every frame. The kiosk also showed the previous customer's order number at one point, which we fixed later. The hanger lowering happens behind a closed shutter where you can't see it, so instead of moving the mechanism, a section camera hides one liner of the compartment and the screen says it's a section view.
+
+Every axis and signal is driven by properties on a single control rig, `V8_CTRL`. All 223 drivers are simple expressions, so it runs without Python auto-run. The full criteria and fixes are in the [verification record](docs/v2.0_verification.md) (Korean).
 
 ## How to view
 
-This is a documents-and-media repository with nothing to install or build.
+There's nothing to install. A browser is enough, plus a player that can load SRT files if you want subtitles.
 
 ```bash
 git clone https://github.com/lsy041015/capstone-design-hanyang-university.git
@@ -181,127 +81,17 @@ cd capstone-design-hanyang-university
 mpv --sub-file=videos/process_v2.0_ko.srt videos/process_v2.0_teaser_120s_1080p30.mp4
 ```
 
-Reading order: this README → [process images](docs/v2.0_process_images.md) → [process design](docs/v2.0_process_design.md) →
-[verification record](docs/v2.0_verification.md) (all in Korean). The 52 design signals, part classes with maintenance proposals and the control
-rig properties are CSV files in `docs/`. The editable `.blend` model and the generator scripts are not included in V2.0 either.
+If you want to dig deeper, start with the [process design](docs/v2.0_process_design.md) (layout, modules, sequence, timing, safety, maintenance; Korean). The 52 design signals, the parts/maintenance list and the control properties are CSV files in `docs/`. The older v7 write-up is in [docs/v7_overview.md](docs/v7_overview.md), and the v7 and v4 videos are still in `videos/`. v7 modelled only the cell, so its numbers differ from V2.0.
 
-## Layout and modules
+## What it isn't yet
 
-The store has four zones: customer lobby (entrance, kiosk, pickup compartments, 12 drop-off lockers), self-service laundry (3 washers,
-2 double-stack dryers, detergent vending, folding table), the automated cell (robot on a 1.0 m pedestal, 2.4 m guard with mesh roof) and the staff
-area (inspection and packing, loading window, VLM bay, C04 control cabinet, service door). V2.0 module codes differ from v7.
+Getting to real hardware would take a lot more: re-verifying the paths with real FR5e CAD, sizing the chain, belts and gripper for load and torque, and building and testing a PLC and safety circuit. Garments are rigid approximations, the people are mannequins for flow studies, and payment, QR and inventory exist only as screens and logic conditions. The demo capacity (26 garments, 12 shoe trays) doesn't say anything about commercial capacity or profitability, and the repo has no market or cost analysis. The editable `.blend` file and the generator scripts aren't published either, so you can't open the model or rerun the checks from this repo alone.
 
-| Code | Module | Key specs (nominal model values; part names are class examples) |
-|---|---|---|
-| **C01** | Garment loop | Side-flex chain, 25.4 mm pitch, 208 links, carrier every 8 links (203.2 mm); two 128-pocket wheels (1,035 mm pitch diameter); 5.283 m path; index pin in 16 bushes; 0.25 m/s assumed |
-| **C02** | Garment compartment A | Robot-side roll-up shutter (46 slats), belt Y axis 450 mm, ball-screw Z axis 230 mm (Ø12, 10 mm lead), receiver pin + solenoid latch, glass customer door |
-| **C03** | Shoe VLM | South (robot) and north (staff) columns, 7 levels each at 250 mm; level 2 holds the robot port and the staff bay; belt lift, 16 mm hook extractor, 0.41 m port conveyor |
-| **C04** | Cabinet and cell | 800 × 550 × 2,000 mm cabinet, 45 mm profile guard, east service door, signal tower |
-| **C05** | Robot and gripper | UR5 CB-series stand-in; servo parallel gripper with POM inserts (two V ribs), 30 mm approach, 10 mm grip, TCP 170 mm from the flange |
-| **C06** | Shoe compartment B | 24 V MDR roller conveyor (Ø50, 75 mm pitch, 14 rollers), 0.65 m travel through a vertical inner shutter, roller top 0.85 m |
+## Credits
 
-Cycle times on the model timeline (assumed axis speeds, not measured): order → A garment ready 27.5 s, order → B shoes ready 40.1 s,
-order → A ready in low position 28.4 s, empty adapter return 19–24 s, empty tray return 40.1 s, staff loading of one garment about 7 s.
-
-### Exploded views
-
-Eight exploded views rendered orthographically from the model: modules C01–C06, the step 2-4 tab-grip interface (gripper, adapter, carrier) and the shoe tray with its saddle bag. Part lists are in [docs/v2.0_exploded_views.md](docs/v2.0_exploded_views.md) (Korean).
-
-<p align="center"><img src="images/v2.0/exploded_sheet.jpg" alt="Eight exploded views of the V2.0 modules and carriers" width="100%"></p>
-
-<!-- v2.0-exploded:start -->
-| View | Subject | Related steps |
-|---|---|---|
-| [E1](images/v2.0/exploded/E1_c01_garment_loop.png) | C01 의류 순환 보관 | 1-2 · 1-3 · 1-4 · 2-3 · 2-4 · 3-1 · 4-4 |
-| [E2](images/v2.0/exploded/E2_c02_garment_compartment_a.png) | C02 의류 수령함 A | 2-5 · 2-7 · 2-8 · 3-1 · 4-2 · 4-3 |
-| [E3](images/v2.0/exploded/E3_c03_shoe_vlm.png) | C03 신발 수직 보관기 (VLM) | 1-5 · 1-6 · 2-6 · 3-2 |
-| [E4](images/v2.0/exploded/E4_c05_robot_cell.png) | C05 로봇 셀 (UR5 대체 형상) | 2-4 · 2-5 · 2-6 · 3-1 · 3-2 · 4-4 |
-| [E5](images/v2.0/exploded/E5_c06_shoe_compartment_b.png) | C06 신발 수령함 B | 2-6 · 2-9 · 3-2 |
-| [E6](images/v2.0/exploded/E6_c04_control_cabinet.png) | C04 제어반 | 2-10 · 5-1 · 5-2 · 5-3 |
-| [E7](images/v2.0/exploded/E7_tab_grip_interface.png) | 탭 파지 인터페이스 (세부 공정 2-4) | 2-4 · 2-5 · 3-1 · 4-4 |
-| [E8](images/v2.0/exploded/E8_shoe_tray_saddle_bag.png) | 신발 트레이 · 새들백 | 1-5 · 2-6 · 2-9 · 3-2 |
-<!-- v2.0-exploded:end -->
-
-Offsets are for illustration, not a disassembly sequence. E2 shows the inner shutter closed; E7 shows the pose at the tab-grip moment (master 56.5 s).
-
-## Verification
-
-Checks reopen the saved model and evaluate real frames. They cover Blender geometry and logic only, not loads, purchased-part ratings,
-PLC or safety circuits, or measured FR5e kinematics. Raw data: [docs/v2.0_verification.json](docs/v2.0_verification.json).
-
-| Check | Result |
-|---|---|
-| Drivers valid and simple (no Python auto-run) | 223, 0 errors |
-| Kinematic couplings (wheel, carrier, pulley, screw, roller, lift), 414 samples | worst 0.024 mm (carrier) |
-| Robot rig vs. numpy forward kinematics | ≤ 1.2 × 10⁻⁶ m |
-| Joint limits and speed (UR5 CB nominal) | max 72°/s, TCP ≤ 1.08 m/s |
-| Cargo handoff continuity (31 handoffs) | max 0.78 mm |
-| Interlock logic on every frame | 6,620 frames, 0 violations |
-| Robot interference (every 3rd of 3,012 motion frames: 7 links + gripper + carried cargo vs. all meshes within 2 m) | 1,004 frames, 0 hits |
-| Loop garment spacing (12 chain positions × 26 garments) | 2,680 pairs, 0 overlaps |
-
-Video: the published MP4 passed (all 3,600 frames decode without errors, 15 chapters, mean −18.7 dB / max −1.5 dB; SHA-256 in [docs/v2.0_video_verification.json](docs/v2.0_video_verification.json)). Camera-to-person clearance: no case under 0.5 m over all 3,600 teaser frames and 42 stills. Not checked: contact between sampled frames, cloth deformation, robot self-collision, dynamics, sensor response,
-safety performance level, stopping distance, electrical design.
-
-## Previous versions
-
-Earlier material stays unchanged. The full v7 README is archived in [docs/v7_overview.en.md](docs/v7_overview.en.md).
-v7 covered the cell only (31 static inspection poses, 177 automated checks, 8 garment and 4 tray slots, modules C01–C07) with its
-[2-minute teaser](videos/process_v7_teaser_120s_1080p30.mp4); the older [60 s v4 video](videos/process_v4_60s_1080p30.mp4) shows 86 steps.
-Do not mix v7 and V2.0 numbers.
-
-## Repository contents
-
-```text
-README.md / README.en.md            project description (Korean / English)
-docs/v2.0_*                         V2.0 process images, design, verification, teaser notes, CSV lists
-docs/v7_* , docs/UR5_LICENSE.txt    archived v7 docs, UR5 mesh notice
-images/v2.0/<process>/*.jpg         V2.0 process images (6 folders) + one sheet per process
-images/v2.0/process_map.png         V2.0 process map (5 groups, 25 steps)
-images/v2.0/exploded/*.png          V2.0 exploded views E1–E8 + exploded_sheet.jpg
-images/01_…–12_…, process_gallery   v7 renders
-videos/process_v2.0_*               V2.0 teaser and Korean subtitles
-videos/process_v7_*, process_v4_*   earlier videos and subtitles
-```
-
-## Tools
-
-Blender 5.2.1 LTS (EEVEE), system Python 3.10.9 with NumPy 1.26.4, SciPy 1.10.0 and Pillow 9.5.0, FFmpeg 8.1.1, Microsoft Heami Desktop voice,
-and UR5 CB-series meshes pinned to Universal Robots ROS 2 Description commit `89bbe795f38a7ab00fb66fe8831dfff79dc99edf`.
-
-## Design notes
-
-- **Pick at the wheel tip, pull out radially.** Garments hang perpendicular to the rail, so they fan out at the wheel. After gripping the tab the robot
-  lifts 28 mm and pulls 0.5 m radially, which clears the outer ends of the neighbours.
-- **One tab for everything.** Adapters and trays share a 10 mm stainless tab, so one gripper insert handles garments and shoes.
-- **Elbow-up solutions first.** An early path swept the arm through a corner post of compartment A. Preferring elbow-up IK solutions and retreating
-  0.40 m instead of 0.16 m before the shutter brought robot interference to 0 over 1,004 frames.
-- **One control rig.** Every axis and signal is a property of `V8_CTRL`; all 223 drivers are simple expressions, so the model runs without Python auto-run.
-- **Show hidden motion as a section.** Hanger lowering happens behind a closed shutter. A section camera hides one liner instead of moving the mechanism,
-  and the video labels it as a section view.
-- **Keep cameras out of people's way.** The staff member walked through the VLM-bay camera, which flashed about 0.5 s of mannequin interior into the video.
-  A per-frame camera-to-person clearance check found it; the camera moved 0.98 m clear of the path and the shot was re-rendered.
-- **Screens match the scenario.** The kiosk first had one order's screens only, so the wheelchair user saw the previous customer's order number. The second order
-  (231-418, garment only, low position) now has its own three screens, and the staff-side screens show the real loading target (carrier H05, tray T04, order 231-452).
-
-## Limitations
-
-- Replace the UR5 stand-in with real FR5e CAD, TCP, payload and tool mass, then re-verify paths and self-collision. Garments are rigid approximations.
-- Size chain, belts, ball screw, brakes and gripper for load, torque, deflection and stopping distance. Part names are class examples.
-- Implement and test a PLC and an independent safety circuit (dual channel, stop categories, restart).
-- Measure staff loading and customer pickup with real people, including the estimated 0.65 m side reach from a wheelchair.
-- Payment, QR, order, inventory and notification services exist only as screens and logic conditions.
-- Demo capacity (26 garments, 12 trays) is not commercial capacity. The 1:1 times and the 2-minute video are not measured cycle times.
-- Without the `.blend` file and scripts the model cannot be opened or re-checked from this repository.
-
-## Credits and license
-
-- **License**: there is no repository-wide license file. The UR5 notice covers only the UR5 meshes, not the text, images or videos here.
-- **UR5 meshes**: official Universal Robots UR5 CB-series simplified STL geometry from
-  [Universal Robots ROS 2 Description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/tree/89bbe795f38a7ab00fb66fe8831dfff79dc99edf/meshes/ur5/collision),
-  pinned to commit `89bbe795f38a7ab00fb66fe8831dfff79dc99edf`; BSD-3-Clause notice in [docs/UR5_LICENSE.txt](docs/UR5_LICENSE.txt). Not original work of this project.
-- **Stand-in robot**: the target robot is the FR5e. Do not present UR5 specifications or geometry as FR5e performance.
-- **Sound**: Windows Microsoft Heami Desktop Korean voice; the V2.0 ambient bed was synthesized with NumPy, with no external music.
+- The robot geometry is Universal Robots' official UR5 CB-series STL ([ROS 2 Description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/tree/89bbe795f38a7ab00fb66fe8831dfff79dc99edf/meshes/ur5/collision), commit `89bbe795`). The BSD-3-Clause notice is in [docs/UR5_LICENSE.txt](docs/UR5_LICENSE.txt) and covers only those meshes. Please don't read UR5 specs as FR5e performance.
+- The narration is the Windows Microsoft Heami Desktop synthetic voice; the ambient sound was synthesized with NumPy.
+- There's no repository-wide license file.
 
 ---
 
